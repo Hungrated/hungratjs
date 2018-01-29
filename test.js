@@ -1,10 +1,8 @@
 const test = require('./index');
 
-const uid = test.uid;
-const time = test.time;
+const Time = test.Time;
 
-let id = uid.generate();
-console.log(id);
+let time = new Time();
 
 console.log(time.now());
 console.log(time.getTimeString(new Date()));

@@ -4,14 +4,16 @@
   "description": "a common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "node test.js",
+    "doc": "jsdoc -c jsdoc_conf.json -r -d ./out/"
   },
   "keywords": [
     "tool"
   ],
   "author": "hungrated",
   "license": "MIT",
-  "devDependencies": {
-
+  "devDependencies": {},
+  "dependencies": {
+    "jsdoc": "^3.5.5"
   }
 }
