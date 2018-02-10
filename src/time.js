@@ -88,7 +88,7 @@ let getMilliSeconds = (_time) => {
 
 /**
  * 格式化时间
- * @function format
+ * @function formatTime
  * @param {Date} [_time=new Date()] 时间对象
  * @param {String} [_format=`yyyy-mm-dd hh:mm:ss`] 要转化的格式
  * @returns {String} 格式化后的时间字符串
