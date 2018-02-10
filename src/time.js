@@ -5,7 +5,7 @@
  * @author Hungrated <zhang295415658@qq.com>
  */
 
-let time = new Date()
+let time = new Date();
 
 // let Time = (function () {
 //     let Time = () => {
