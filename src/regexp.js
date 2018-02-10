@@ -6,7 +6,7 @@
  */
 
 let addCommaFormat = (_num) => {
-  return num.toString().replace(/\d(?=(\d{3})+$)/g, '$&,');
+  return _num.toString().replace(/\d(?=(\d{3})+$)/g, '$&,');
 };
 
 export {
