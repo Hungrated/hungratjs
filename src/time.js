@@ -1,20 +1,19 @@
 /**
  * 时间模块
- * @module src/time
- * @see module:src/time
+ * @module time
+ * @see module:time
  * @author Hungrated <zhang295415658@qq.com>
- * @access public
  */
 
 let Time = (function () {
-    let Time = function (config) {
+    let Time = () => {
     };
 
     /**
      * 将一位数字转化为两位数字的字符串
      * @function _convert
      * @access private
-     * @returns {String} digitString 两位数字的字符串
+     * @returns {String} 两位数字的字符串
      */
     let _convert = (digit) => {
         if (digit < 10) return '0' + digit;
@@ -26,7 +25,7 @@ let Time = (function () {
      * @function _getDate
      * @access private
      * @param {Object} time
-     * @returns {String} timeString 时间字符串
+     * @returns {String} 时间字符串
      */
     let _getDate = (time) => {
         let curTime = null;
@@ -54,8 +53,10 @@ let Time = (function () {
      * 获取当前时间字符串
      * @function getDate
      * @access public
-     * @returns {String} curTimeString 当前时间字符串
+     * @returns {String} 当前时间字符串
      */
+
+    console.log(this, Time, Time.prototype);
     Time.prototype.now = () => {
         return _getDate(null);
     };
@@ -65,7 +66,7 @@ let Time = (function () {
      * @function getDate
      * @access public
      * @param {Object} time 一个Date对象
-     * @returns {String} timeString 时间字符串
+     * @returns {String} 时间字符串
      */
     Time.prototype.getTimeString = (time) => {
         return _getDate(time);

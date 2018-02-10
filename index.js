@@ -1,7 +1,6 @@
-const uid = require('./src/uid');
-const Time = require('./src/time');
-const reg = require('./src/regexp');
 
+const Time = require('./src/time');
+const Uid = require('./src/uid');
 module.exports = {
-  uid, Time, reg
+  Uid, Time
 };
