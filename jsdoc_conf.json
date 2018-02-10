@@ -10,7 +10,9 @@
     "include": [
       "src/"
     ],
-    "exclude": [],
+    "exclude": [
+      "src/entry.js"
+    ],
     "includePattern": ".+\\.js(doc)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },

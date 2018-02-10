@@ -1,5 +1,6 @@
 import * as Time from './time';
+import * as Uuid from './uuid';
 
 export {
-  Time
+  Time, Uuid
 };
