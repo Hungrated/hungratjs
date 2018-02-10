@@ -1,6 +1,25 @@
+const utils = require('./lib/entry');
 
-const Time = require('./src/time');
-const Uid = require('./src/uid');
-module.exports = {
-  Uid, Time
+let test = (body) => {
+  console.log(
+    '\n\n\n' +
+    '-------------------------------------------------------------------\n' +
+    ' * Test Result:\n\n'
+  );
+
+  body();
+
+  console.log(
+    '\n\n\n' +
+    ' * Test End.\n' +
+    '===================================================================\n\n'
+  );
 };
+
+test(() => {
+  /*
+   * test code here
+   */
+
+  console.log(utils.Time);
+});

@@ -2,7 +2,6 @@ module.exports = {
   "extends": "standard",
   "rules": {
     //
-    //
     // 可能的错误
     // 这些规则与 JavaScript 代码中可能的语法错误或逻辑错误有关
     //
@@ -44,6 +43,7 @@ module.exports = {
     "no-dupe-args": "error",
     // 禁止在对象字面量中出现重复名称的键名
     "no-dupe-keys": "error",
-    "semi": [2, "always"]
+    "semi": [2, "always"],
+    "no-unused-expressions": "off"
   }
 };

@@ -1,10 +1,10 @@
 {
   "name": "js-common-tools",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "a common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/babel src -d lib && node lib/test.js",
+    "test": "./node_modules/.bin/babel src -d lib && node index.js",
     "doc": "jsdoc -c jsdoc_conf.json -r -d ./out/ --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2"
   },
   "keywords": [
