@@ -93,20 +93,6 @@ let getMilliSeconds = (_time) => {
 };
 
 /**
- * 格式化时间
- * @function formatTime
- * @param {Date} [_time=new Date()] 时间对象
- * @param {String} [_format=`yyyy-mm-dd hh:mm:ss`] 要转化的格式
- * @returns {String} 格式化后的时间字符串
- */
-let formatTime = (_time = new Date(), _format = `y-m-d h:m:s.ms`) => {
-  return _format.replace(/y/, getYear(_time)).replace(/m/, convert(getMonth(_time)))
-    .replace(/d/, convert(getDay(_time))).replace(/h/, convert(getHours(_time)))
-    .replace(/m/, convert(getMinutes(_time))).replace(/s/, convert(getSeconds(_time)))
-    .replace(/ms/, convert(getMilliSeconds(_time), false));
-};
-
-/**
  * 解析绝对时间的毫秒数
  * @function parseMilliSeconds
  * @param {Number} _milliSeconds 绝对毫秒数
@@ -158,7 +144,7 @@ let getAbsoluteTime = (_time = new Date()) => {
 
 /**
  * 获取时间差毫秒数
- * @function getMilliSeconds
+ * @function getTimeDifference
  * @param {Date} _time 绝对毫秒数
  * @returns {Number} 毫秒数
  */
@@ -167,8 +153,22 @@ let getTimeDifference = (_time) => {
 };
 
 /**
+ * 格式化时间
+ * @function formatTime
+ * @param {Date} [_time=new Date()] 时间对象
+ * @param {String} [_format=`yyyy-mm-dd hh:mm:ss`] 要转化的格式
+ * @returns {String} 格式化后的时间字符串
+ */
+let formatTime = (_time = new Date(), _format = `y-m-d h:m:s.ms`) => {
+  return _format.replace(/y/, getYear(_time)).replace(/m/, convert(getMonth(_time)))
+    .replace(/d/, convert(getDay(_time))).replace(/h/, convert(getHours(_time)))
+    .replace(/m/, convert(getMinutes(_time))).replace(/s/, convert(getSeconds(_time)))
+    .replace(/ms/, convert(getMilliSeconds(_time), false));
+};
+
+/**
  * 格式化时间差
- * @function getMilliSeconds
+ * @function formatTimeDifference
  * @param {Date} _time 时间对象
  * @param {String} [_format='h:m:s.ms'] 绝对毫秒数
  * @returns {String} 格式化后的时间字符串
