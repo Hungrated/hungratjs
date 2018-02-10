@@ -1,7 +1,7 @@
 {
   "name": "js-common-tools",
-  "version": "0.1.3",
-  "description": "a common javascript tool lib for development",
+  "version": "0.2.0",
+  "description": "A common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/babel src -d lib && node index.js",
