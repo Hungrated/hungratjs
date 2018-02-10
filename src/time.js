@@ -45,8 +45,10 @@ let getMilliSeconds = (_time) => {
   return _time.getMilliseconds();
 };
 
-let formatTime = (_time = new Date(), _format = 'yyyy-mm-ss hh:mm:ss') => {
-  return _format.replace(/yyyy/, getYear(_time));
+let formatTime = (_time = new Date(), _format = 'yyyy-mm-dd hh:mm:ss') => {
+  return _format.replace(/yyyy/, getYear(_time)).replace(/mm/, convert(getMonth(_time)))
+    .replace(/dd/, convert(getDay(_time))).replace(/hh/, convert(getHours(_time)))
+    .replace(/mm/, convert(getMinutes(_time))).replace(/ss/, convert(getSeconds(_time)));
 };
 
 export {
