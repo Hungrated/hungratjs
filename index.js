@@ -12,7 +12,7 @@ let test = (body) => {
   console.log(
     '\n\n\n' +
     ' * Test End.\n' +
-    '===================================================================\n\n'
+    '===================================================================\n'
   );
 };
 
@@ -22,5 +22,5 @@ test(() => {
    */
 
   // time.js
-  console.log(utils.Time.formatTime());
+  console.log(utils.Time.formatTime(), utils.Time.formatTimeDifference(31536000535));
 });

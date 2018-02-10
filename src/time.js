@@ -6,14 +6,20 @@
  */
 
 /**
- * 将100以下的正数标准化为两位数字字符串
+ * 将100以下的正数标准化为两位或三位数字字符串
  * @function convert
  * @param {Number} _digit 数字
- * @returns {String} 两位数字字符串
+ * @param {Boolean} [_two=true] 是否输出两位数
+ * @returns {String} 标准化后的数字字符串
  */
-const convert = (_digit) => {
-  if (_digit >= 0 && _digit < 10) return '0' + _digit;
-  else return _digit.toString();
+const convert = (_digit, _two = true) => {
+  if (_digit >= 0 && _digit < 10) {
+    return (_two ? '0' : '00') + _digit.toString();
+  } else if (_digit < 100) {
+    return _two ? _digit.toString() : '0' + _digit.toString();
+  } else {
+    return _digit.toString();
+  }
 };
 
 /**
@@ -93,13 +99,44 @@ let getMilliSeconds = (_time) => {
  * @param {String} [_format=`yyyy-mm-dd hh:mm:ss`] 要转化的格式
  * @returns {String} 格式化后的时间字符串
  */
-let formatTime = (_time = new Date(), _format = `yyyy-mm-dd hh:mm:ss:ms`) => {
-  return _format.replace(/yyyy/, getYear(_time)).replace(/mm/, convert(getMonth(_time)))
-    .replace(/dd/, convert(getDay(_time))).replace(/hh/, convert(getHours(_time)))
-    .replace(/mm/, convert(getMinutes(_time))).replace(/ss/, convert(getSeconds(_time)))
-    .replace(/ms/, convert(getMilliSeconds(_time)));
+let formatTime = (_time = new Date(), _format = `y-m-d h:m:s.ms`) => {
+  return _format.replace(/y/, getYear(_time)).replace(/m/, convert(getMonth(_time)))
+    .replace(/d/, convert(getDay(_time))).replace(/h/, convert(getHours(_time)))
+    .replace(/m/, convert(getMinutes(_time))).replace(/s/, convert(getSeconds(_time)))
+    .replace(/ms/, convert(getMilliSeconds(_time), false));
+};
+
+let parseMilliSeconds = (_milliSeconds) => {
+  return _milliSeconds % 1000;
+};
+
+let parseSeconds = (_milliSeconds) => {
+  return Math.floor((_milliSeconds - parseMilliSeconds(_milliSeconds)) / 1000) % 60;
+};
+
+let parseMinutes = (_milliSeconds) => {
+  return Math.floor((_milliSeconds - parseHours(_milliSeconds) * 3600000) / 60000);
+};
+
+let parseHours = (_milliSeconds) => {
+  return Math.floor(_milliSeconds / 3600000);
+};
+
+let getAbsoluteTime = (_time = new Date()) => {
+  return _time.getTime();
+};
+
+let getTimeDifference = (_time) => {
+  return getAbsoluteTime() - getAbsoluteTime(_time);
+};
+
+let formatTimeDifference = (_time, _format = 'h:m:s.ms') => {
+  let _diff = typeof _time === 'number' ? _time : getTimeDifference(_time);
+  return _format.replace(/h/, convert(parseHours(_diff))).replace(/m/, convert(parseMinutes(_diff)))
+    .replace(/s/, convert(parseSeconds(_diff))).replace(/ms/, convert(parseMilliSeconds(_diff), false));
 };
 
 export {
-  formatTime
+  formatTime,
+  formatTimeDifference
 };
