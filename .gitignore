@@ -3,3 +3,4 @@ node_modules
 out
 /js-common-tools.iml
 /package-lock.json
+/lib/

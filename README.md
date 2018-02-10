@@ -4,10 +4,10 @@ A common javascript tool lib for development
 initial commit on 21st Dec 2017
 
 ## 1 modules
-### time
 
-provides a set of time-format functions.
-
+| |名 称|描 述|
+|---:|:---|:---|
+|1|Time|provides a set of time-format functions.|
 
 ## 2 document
 
