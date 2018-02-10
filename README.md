@@ -13,7 +13,7 @@ initial commit on 21st Dec 2017
 
 ## 2 versions
 
-`v0.1.1` on 10 Feb 2018: added module `time`.  
+`v0.2.0` on 10 Feb 2018: added module `time`.  
 
 `v0.1.0` on 10 Feb 2018: rebase project structure.
 

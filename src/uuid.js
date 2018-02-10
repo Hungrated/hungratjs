@@ -1,7 +1,7 @@
 /**
  * 全局唯一标识码模块
  * @module Uuid
- * @see module:Time
+ * @see module:Uuid
  * @author Hungrated zhang295415658@qq.com
  */
 
