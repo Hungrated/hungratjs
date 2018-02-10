@@ -6,7 +6,7 @@ initial commit on 21st Dec 2017
 
 ## 1 modules
 
-| |名 称|描 述|
+| |Name|Description|
 |---:|:---|:---|
 |1|Time|provides a set of time-format functions.|
 
