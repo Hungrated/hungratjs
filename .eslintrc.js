@@ -44,6 +44,7 @@ module.exports = {
     // 禁止在对象字面量中出现重复名称的键名
     "no-dupe-keys": "error",
     "semi": [2, "always"],
-    "no-unused-expressions": "off"
+    "no-unused-expressions": "off",
+    "no-unused-vars": "off"
   }
 };

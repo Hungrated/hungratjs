@@ -21,5 +21,5 @@ test(() => {
    * test code here
    */
 
-  console.log(utils.Time);
+  console.log(utils.Time.formatTime());
 });
