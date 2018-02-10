@@ -106,30 +106,73 @@ let formatTime = (_time = new Date(), _format = `y-m-d h:m:s.ms`) => {
     .replace(/ms/, convert(getMilliSeconds(_time), false));
 };
 
+/**
+ * 解析绝对时间的毫秒数
+ * @function parseMilliSeconds
+ * @param {Number} _milliSeconds 绝对毫秒数
+ * @returns {Number} 毫秒数
+ */
 let parseMilliSeconds = (_milliSeconds) => {
   return _milliSeconds % 1000;
 };
 
+/**
+ * 解析绝对时间的秒钟数
+ * @function parseSeconds
+ * @param {Number} _milliSeconds 绝对毫秒数
+ * @returns {Number} 秒钟数
+ */
 let parseSeconds = (_milliSeconds) => {
   return Math.floor((_milliSeconds - parseMilliSeconds(_milliSeconds)) / 1000) % 60;
 };
 
+/**
+ * 解析绝对时间的毫秒数
+ * @function parseMinutes
+ * @param {Number} _milliSeconds 绝对毫秒数
+ * @returns {Number} 分钟数
+ */
 let parseMinutes = (_milliSeconds) => {
   return Math.floor((_milliSeconds - parseHours(_milliSeconds) * 3600000) / 60000);
 };
 
+/**
+ * 解析绝对时间的毫秒数
+ * @function parseHours
+ * @param {Number} _milliSeconds 绝对毫秒数
+ * @returns {Number} 小时数
+ */
 let parseHours = (_milliSeconds) => {
   return Math.floor(_milliSeconds / 3600000);
 };
 
+/**
+ * 获取绝对时间的毫秒数（1970年1月1日至今经历的毫秒数）
+ * @function getAbsoluteTime
+ * @param {Date} [_time=new Date()] 时间对象
+ * @returns {Number} 毫秒数
+ */
 let getAbsoluteTime = (_time = new Date()) => {
   return _time.getTime();
 };
 
+/**
+ * 获取时间差毫秒数
+ * @function getMilliSeconds
+ * @param {Date} _time 绝对毫秒数
+ * @returns {Number} 毫秒数
+ */
 let getTimeDifference = (_time) => {
   return getAbsoluteTime() - getAbsoluteTime(_time);
 };
 
+/**
+ * 格式化时间差
+ * @function getMilliSeconds
+ * @param {Date} _time 时间对象
+ * @param {String} [_format='h:m:s.ms'] 绝对毫秒数
+ * @returns {String} 格式化后的时间字符串
+ */
 let formatTimeDifference = (_time, _format = 'h:m:s.ms') => {
   let _diff = typeof _time === 'number' ? _time : getTimeDifference(_time);
   return _format.replace(/h/, convert(parseHours(_diff))).replace(/m/, convert(parseMinutes(_diff)))
