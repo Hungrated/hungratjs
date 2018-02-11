@@ -15,7 +15,7 @@ initial commit on 21st Dec 2017
 
 ## 2 versions
 
-`v0.2.3` on 10 Feb 2018: updated module `regexp`. 
+`v0.2.3` on 11 Feb 2018: updated module `regexp`. 
 
 `v0.2.2` on 10 Feb 2018: added module `uuid` `regexp`. 
  
