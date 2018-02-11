@@ -23,4 +23,6 @@ test(() => {
 
   // time.js
   console.log(utils.Time.formatTime(), utils.Time.formatTimeDifference(31536000535));
+
+  console.log(utils.Regexp.testType('13456789000', 'phone'));
 });
