@@ -33,8 +33,17 @@ npm install
 
 `v0.1.0` on 10 Feb 2018: rebase project structure.
 
+### 3 Module Testing
 
-### 3 Documentation
+To test features of modules listed above, just code in index.js and run the following command: 
+
+```bash
+npm run test
+```
+
+### 4 Documentation
+
+Run the following command: 
 
 ```bash
 npm run doc
@@ -42,7 +51,9 @@ npm run doc
 
 >  Then check `src/docs/index.html`.
 
-### 4 Build
+### 5 Build
+
+Run the following command: 
 
 ```bash
 npm run build
