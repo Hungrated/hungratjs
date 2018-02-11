@@ -1,7 +1,7 @@
 /**
  * 字符串正则匹配模块
- * @module Regexp
- * @see module:Regexp
+ * @module RegExp
+ * @see module:RegExp
  * @author Hungrated zhang295415658@qq.com
  */
 
@@ -71,7 +71,7 @@ let getRegExpString = (_type) => {
 /**
  * 获取正则表达式对象
  * @function getRegExp
- * @param {String|Object} _regexp 数字
+ * @param {String|Object} _regexp 正则表达式字符串或对象
  * @param {String} [_attr] 修饰符
  * @returns {Object} 正则表达式对象
  */
@@ -81,7 +81,6 @@ let getRegExp = (_regexp, _attr) => {
   } else {
     return _regexp;
   }
-
 };
 
 /**
