@@ -22,7 +22,9 @@ test(() => {
    */
 
   // time.js
-  console.log(utils.Time.formatTime(), utils.Time.formatTimeDifference(31536000535));
+  console.log(utils.Time.formatTime());
+  console.log(utils.Time.formatTimeDifference(1518334829701, 1518333473303));
+  console.log(utils.Time.formatTimeDifferenceTillNow(1518333473303));
 
-  console.log(utils.Regexp.testType('13456789000', 'phone'));
+  // console.log(utils.Regexp.testType('13456789000', 'phone'));
 });
