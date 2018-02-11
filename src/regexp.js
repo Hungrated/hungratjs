@@ -15,6 +15,12 @@ let addCommaFormat = (_num) => {
   return _num.toString().replace(/\d(?=(\d{3})+$)/g, '$&,');
 };
 
+/**
+ * 获取正则表达式模板
+ * @function getRegExpString
+ * @param {String} _type 类型
+ * @returns {String} 类型对应的正则表达式字符串
+ */
 let getRegExpString = (_type) => {
   switch (_type) {
     case 'number':
@@ -30,7 +36,7 @@ let getRegExpString = (_type) => {
     case 'domain':
       return '[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?';
     case 'url':
-      return '[a-zA-z]+://[^\\s]* 或 ^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$';
+      return '[a-zA-z]+://[^\\s]*';
     case 'phone':
       return '^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$';
     case 'tel':
@@ -62,16 +68,31 @@ let getRegExpString = (_type) => {
   }
 };
 
-let regExp = (_regexp, _attr) => {
+/**
+ * 获取正则表达式对象
+ * @function getRegExp
+ * @param {String|Object} _regexp 数字
+ * @param {String} [_attr] 修饰符
+ * @returns {Object} 正则表达式对象
+ */
+let getRegExp = (_regexp, _attr) => {
   if (typeof _regexp === 'string') {
     return new RegExp(_regexp, _attr);
   } else {
     return _regexp;
   }
+
 };
 
+/**
+ * 判断字符串是否属于某一类型模式
+ * @function testType
+ * @param {String} _str 待匹配字符串
+ * @param {String} _type 匹配类型
+ * @returns {Boolean} 是否匹配的结果
+ */
 let testType = (_str, _type) => {
-  return regExp(getRegExpString(_type)).test(_str);
+  return getRegExp(getRegExpString(_type)).test(_str);
 };
 
 export {
