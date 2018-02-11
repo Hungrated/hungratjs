@@ -25,8 +25,8 @@ const convert = (_digit, _two = true) => {
 /**
  * 将时间统一返回为Date类型 `若传入值为null则返回值也为null`
  * @function convertToDateObject
- * @param {Number|Date} [_time = new Date()] 时间
- * @returns {Date} 时间对象
+ * @param {Number|Object} [_time = new Date()] 时间
+ * @returns {Object} 时间对象
  */
 const convertToDateObject = (_time = new Date()) => {
   return typeof _time === 'number' ? new Date(_time) : _time;
@@ -35,7 +35,7 @@ const convertToDateObject = (_time = new Date()) => {
 /**
  * 获取时间的年份
  * @function getYear
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 年份
  */
 let getYear = (_time) => {
@@ -45,7 +45,7 @@ let getYear = (_time) => {
 /**
  * 获取时间的月份
  * @function getMonth
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 月份
  */
 let getMonth = (_time) => {
@@ -55,7 +55,7 @@ let getMonth = (_time) => {
 /**
  * 获取时间的日期
  * @function getDay
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 日期
  */
 let getDay = (_time) => {
@@ -65,7 +65,7 @@ let getDay = (_time) => {
 /**
  * 获取时间的小时数
  * @function getHours
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 小时数
  */
 let getHours = (_time) => {
@@ -75,7 +75,7 @@ let getHours = (_time) => {
 /**
  * 获取时间的分钟数
  * @function getMinutes
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 分钟数
  */
 let getMinutes = (_time) => {
@@ -85,7 +85,7 @@ let getMinutes = (_time) => {
 /**
  * 获取时间的秒钟数
  * @function getSeconds
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 秒钟数
  */
 let getSeconds = (_time) => {
@@ -95,7 +95,7 @@ let getSeconds = (_time) => {
 /**
  * 获取时间的毫秒数
  * @function getMilliSeconds
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 毫秒数
  */
 let getMilliSeconds = (_time) => {
@@ -145,7 +145,7 @@ let parseHours = (_milliSeconds) => {
 /**
  * 获取绝对时间的毫秒数（1970年1月1日至今经历的毫秒数）`默认返回当前绝对时间的毫秒数`
  * @function getAbsoluteTime
- * @param {Date} _time 时间对象
+ * @param {Object} _time 时间对象
  * @returns {Number} 毫秒数
  */
 let getAbsoluteTime = (_time) => {
@@ -155,8 +155,8 @@ let getAbsoluteTime = (_time) => {
 /**
  * 获取时间差毫秒数
  * @function getTimeDifference
- * @param {Date} _timeLater 较晚时间绝对毫秒数
- * @param {Date} _timeEarlier 较早时间绝对毫秒数
+ * @param {Object} _timeLater 较晚时间绝对毫秒数
+ * @param {Object} _timeEarlier 较早时间绝对毫秒数
  * @returns {Number} 毫秒数
  */
 let getTimeDifference = (_timeLater, _timeEarlier) => {
@@ -170,7 +170,7 @@ let getTimeDifference = (_timeLater, _timeEarlier) => {
 /**
  * 格式化时间
  * @function formatTime
- * @param {Date} [_time=new Date()] 时间对象
+ * @param {Object} [_time=new Date()] 时间对象
  * @param {String} [_format=`yyyy-mm-dd hh:mm:ss`] 要转化的格式
  * @returns {String} 格式化后的时间字符串
  */
@@ -184,8 +184,8 @@ let formatTime = (_time = new Date(), _format = `y-m-d h:m:s.ms`) => {
 /**
  * 格式化两个时间的时间差
  * @function formatTimeDifference
- * @param {Date|Number} _timeLater 较晚时间对象
- * @param {Date|Number} _timeEarlier 较早时间对象
+ * @param {Object|Number} _timeLater 较晚时间对象
+ * @param {Object|Number} _timeEarlier 较早时间对象
  * @param {String} [_format='h:m:s.ms'] 绝对毫秒数
  * @returns {String} 格式化后的时间字符串
  */
@@ -198,7 +198,7 @@ let formatTimeDifference = (_timeLater, _timeEarlier, _format = 'h:m:s.ms') => {
 /**
  * 格式化给定时间到当前时间的时间差
  * @function formatTimeDifferenceTillNow
- * @param {Date|Number} _time 时间对象
+ * @param {Object|Number} _time 时间对象
  * @param {String} [_format='h:m:s.ms'] 绝对毫秒数
  * @returns {String} 格式化后的时间字符串
  */
