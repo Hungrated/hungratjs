@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/babel src -d lib && node index.js",
-    "doc": "jsdoc -c jsdoc_conf.json -r -d ./out/ --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2"
+    "doc": "jsdoc -c jsdoc_conf.json -r -d src/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2"
   },
   "keywords": [
     "tool"
