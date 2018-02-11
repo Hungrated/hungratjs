@@ -4,16 +4,24 @@ A common javascript tool lib for development
 
 initial commit on 21st Dec 2017
 
-## 1 modules
+### Setup: 
+ ```bash
+npm install
+ ```
+
+
+### 1 Modules
 
 | |Name|Description|
 |---:|:---|:---|
 |1|Time|provides a set of time-format functions.|
 |2|Uuid|generating a global unique identifier.|
-|3|Regexp|functions for string validating & replacement.|
+|3|RegExp|functions for string validating & replacement.|
 
 
-## 2 changelog & version control
+### 2 Changelog & Version Control
+
+`v0.2.5` on 11 Feb 2018: added webpack compress module. 
 
 `v0.2.4` on 11 Feb 2018: updated module `time`. 
 
@@ -26,10 +34,18 @@ initial commit on 21st Dec 2017
 `v0.1.0` on 10 Feb 2018: rebase project structure.
 
 
-## 3 document
+### 3 Documentation
 
 ```bash
-1. npm install
-2. npm run doc
-3. check out/index.html
+npm run doc
 ```
+
+>  Then check `src/docs/index.html`.
+
+### 4 Build
+
+```bash
+npm run build
+```
+
+> Then check `dist/js-common-tools.js`.

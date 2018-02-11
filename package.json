@@ -4,9 +4,9 @@
   "description": "A common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/babel src -d lib && node index.js",
-    "build": "webpack",
-    "doc": "jsdoc -c jsdoc_conf.json -r -d src/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2"
+    "test": "./node_modules/.bin/babel src -d lib --ignore src/docs && node index.js",
+    "doc": "jsdoc -c jsdoc_conf.json -r -d src/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2",
+    "build": "webpack"
   },
   "keywords": [
     "tool"
@@ -16,7 +16,6 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "eslint": "^4.17.0",
     "eslint-config-standard": "^11.0.0-beta.0",
@@ -28,6 +27,5 @@
     "jsdoc": "^3.5.5",
     "webpack": "^3.11.0",
     "webpack-parallel-uglify-plugin": "^1.0.2"
-  },
-  "dependencies": {}
+  }
 }
