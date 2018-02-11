@@ -23,6 +23,16 @@ const convert = (_digit, _two = true) => {
 };
 
 /**
+ * 将时间统一返回为Date类型 `若传入值为null则返回值也为null`
+ * @function convertToDateObject
+ * @param {Number|Date} [_time = new Date()] 时间
+ * @returns {Date} 时间对象
+ */
+const convertToDateObject = (_time = new Date()) => {
+  return typeof _time === 'number' ? new Date(_time) : _time;
+};
+
+/**
  * 获取时间的年份
  * @function getYear
  * @param {Date} _time 时间对象
@@ -133,23 +143,28 @@ let parseHours = (_milliSeconds) => {
 };
 
 /**
- * 获取绝对时间的毫秒数（1970年1月1日至今经历的毫秒数）
+ * 获取绝对时间的毫秒数（1970年1月1日至今经历的毫秒数）`默认返回当前绝对时间的毫秒数`
  * @function getAbsoluteTime
- * @param {Date} [_time=new Date()] 时间对象
+ * @param {Date} _time 时间对象
  * @returns {Number} 毫秒数
  */
-let getAbsoluteTime = (_time = new Date()) => {
-  return _time.getTime();
+let getAbsoluteTime = (_time) => {
+  return !_time ? Date.now() : convertToDateObject(_time).getTime();
 };
 
 /**
  * 获取时间差毫秒数
  * @function getTimeDifference
- * @param {Date} _time 绝对毫秒数
+ * @param {Date} _timeLater 较晚时间绝对毫秒数
+ * @param {Date} _timeEarlier 较早时间绝对毫秒数
  * @returns {Number} 毫秒数
  */
-let getTimeDifference = (_time) => {
-  return getAbsoluteTime() - getAbsoluteTime(_time);
+let getTimeDifference = (_timeLater, _timeEarlier) => {
+  if (!_timeEarlier) {
+    return Math.abs(getAbsoluteTime() - getAbsoluteTime(_timeLater));
+  } else {
+    return Math.abs(getAbsoluteTime(_timeLater) - getAbsoluteTime(_timeEarlier));
+  }
 };
 
 /**
@@ -167,19 +182,32 @@ let formatTime = (_time = new Date(), _format = `y-m-d h:m:s.ms`) => {
 };
 
 /**
- * 格式化时间差
+ * 格式化两个时间的时间差
  * @function formatTimeDifference
- * @param {Date} _time 时间对象
+ * @param {Date|Number} _timeLater 较晚时间对象
+ * @param {Date|Number} _timeEarlier 较早时间对象
  * @param {String} [_format='h:m:s.ms'] 绝对毫秒数
  * @returns {String} 格式化后的时间字符串
  */
-let formatTimeDifference = (_time, _format = 'h:m:s.ms') => {
-  let _diff = typeof _time === 'number' ? _time : getTimeDifference(_time);
+let formatTimeDifference = (_timeLater, _timeEarlier, _format = 'h:m:s.ms') => {
+  let _diff = getTimeDifference(convertToDateObject(_timeLater), convertToDateObject(_timeEarlier));
   return _format.replace(/h/, convert(parseHours(_diff))).replace(/m/, convert(parseMinutes(_diff)))
     .replace(/s/, convert(parseSeconds(_diff))).replace(/ms/, convert(parseMilliSeconds(_diff), false));
 };
 
+/**
+ * 格式化给定时间到当前时间的时间差
+ * @function formatTimeDifferenceTillNow
+ * @param {Date|Number} _time 时间对象
+ * @param {String} [_format='h:m:s.ms'] 绝对毫秒数
+ * @returns {String} 格式化后的时间字符串
+ */
+let formatTimeDifferenceTillNow = (_time, _format = 'h:m:s.ms') => {
+  return formatTimeDifference(_time, null, _format);
+};
+
 export {
   formatTime,
-  formatTimeDifference
+  formatTimeDifference,
+  formatTimeDifferenceTillNow
 };
