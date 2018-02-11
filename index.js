@@ -26,5 +26,9 @@ test(() => {
   console.log(utils.Time.formatTimeDifference(1518334829701, 1518333473303));
   console.log(utils.Time.formatTimeDifferenceTillNow(1518333473303));
 
-  // console.log(utils.Regexp.testType('13456789000', 'phone'));
+  // regexp.js
+  console.log(utils.Regexp.testType('13456789000', 'phone'));
+
+  // uuid.js
+  console.log(utils.Uuid.generate(), utils.Uuid.generate(), utils.Uuid.generate());
 });

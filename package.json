@@ -1,6 +1,6 @@
 {
   "name": "js-common-tools",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,5 @@
     "eslint-plugin-standard": "^3.0.1",
     "jaguarjs-jsdoc-patched-2": "0.0.6",
     "jsdoc": "^3.5.5"
-  },
-  "dependencies": {}
+  }
 }
