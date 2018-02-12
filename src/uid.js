@@ -5,6 +5,8 @@
  * @author Hungrated zhang295415658@qq.com
  */
 
+'use strict';
+
 /**
  * 生成全局唯一标识码
  * @function generate

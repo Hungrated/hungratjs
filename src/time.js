@@ -5,6 +5,8 @@
  * @author Hungrated zhang295415658@qq.com
  */
 
+'use strict';
+
 /**
  * 将100以下的正数标准化为两位或三位数字字符串
  * @function convert

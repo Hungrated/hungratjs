@@ -5,6 +5,8 @@
  * @author Hungrated zhang295415658@qq.com
  */
 
+'use strict';
+
 /**
  * 数字千分位格式化
  * @function addCommaFormat
