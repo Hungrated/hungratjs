@@ -15,7 +15,7 @@ npm install
 | |Name|Description|
 |---:|:---|:---|
 |1|Time|provides a set of time-format functions.|
-|2|Uuid|generating a global unique identifier.|
+|2|Uid|generating unique identifiers.|
 |3|RegExp|functions for string validating & replacement.|
 
 
