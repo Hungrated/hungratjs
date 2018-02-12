@@ -1,7 +1,7 @@
 import * as Time from './time';
-import * as Uuid from './uuid';
+import * as Uid from './uid';
 import * as RegExp from './regexp';
 
 export {
-  Time, Uuid, RegExp
+  Time, Uid, RegExp
 };

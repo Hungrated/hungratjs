@@ -29,5 +29,5 @@ test(() => {
   // regexp.js
   console.log(utils.RegExp.testType('13456789000', 'phone'));
   // uuid.js
-  console.log(utils.Uuid.generate(), utils.Uuid.generate(), utils.Uuid.generate());
+  console.log(utils.Uid.generate(), utils.Uid.generate(), utils.Uid.generate());
 });
