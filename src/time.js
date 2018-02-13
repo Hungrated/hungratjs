@@ -6,6 +6,7 @@
  */
 
 'use strict';
+import './string';
 
 /**
  * 将100以下的正数标准化为两位或三位数字字符串
@@ -15,10 +16,8 @@
  * @returns {String} 标准化后的数字字符串
  */
 const convert = (_digit, _two = true) => {
-  if (_digit >= 0 && _digit < 10) {
-    return (_two ? '0' : '00') + _digit.toString();
-  } else if (_digit < 100) {
-    return _two ? _digit.toString() : '0' + _digit.toString();
+  if (_digit >= 0 && _digit < 100) {
+    return _two ? _digit.toString().padStart(2, '0') : _digit.toString().padStart(3, '0');
   } else {
     return _digit.toString();
   }

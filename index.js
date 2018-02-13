@@ -34,10 +34,6 @@ test(() => {
 
   // string.js
   let temp = '   testString   ';
-  console.log(temp.trimLeft());
   console.log(temp.trimSpace());
-  console.log(temp.trim());
-  console.log(temp.reverse());
   console.log(temp.capitalize());
-  console.log(`<script>alert(1)</script>`.htmlEntities());
 });
