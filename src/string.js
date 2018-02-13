@@ -37,6 +37,12 @@ if (!String.prototype.trimSpace) {
     });
 }
 
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  };
+}
+
 if (!String.prototype.capitalize) {
   Object.defineProperty(String.prototype, 'capitalize',
     {
