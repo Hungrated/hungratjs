@@ -21,3 +21,30 @@ if (!Number.prototype.addCommaFormat) {
     enumerable: false
   });
 }
+
+if (!Number.prototype.toKiloBytes) {
+  Object.defineProperty(Number.prototype, 'toKiloBytes', {
+    value (_length) {
+      return (this * 1.0 / 1024).toFixed(_length || 2);
+    },
+    enumerable: false
+  });
+}
+
+if (!Number.prototype.toMegaBytes) {
+  Object.defineProperty(Number.prototype, 'toMegaBytes', {
+    value (_length) {
+      return (this * 1.0 / 1048576).toFixed(_length || 2);
+    },
+    enumerable: false
+  });
+}
+
+if (!Number.prototype.toGigaBytes) {
+  Object.defineProperty(Number.prototype, 'toGigaBytes', {
+    value (_length) {
+      return (this * 1.0 / 1073741824).toFixed(_length || 2);
+    },
+    enumerable: false
+  });
+}
