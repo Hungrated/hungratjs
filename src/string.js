@@ -158,7 +158,7 @@ if (!String.prototype.includes) {
  * @function wordIncludes
  * @param {String} _search 要搜索的单词
  * @param {Number} [_start=0] 搜索起始单词位置 `默认为0`
- * @returns {Boolean} 搜索是否包含该子串
+ * @returns {Boolean} 搜索是否包含该单词
  */
 if (!String.prototype.wordIncludes) {
   Object.defineProperty(String.prototype, 'wordIncludes', {

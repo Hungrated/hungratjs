@@ -17,9 +17,12 @@ npm install
 |1|Time|provides a set of time-format functions.|
 |2|Uid|generating unique identifiers.|
 |3|RegExp|functions for string validating & replacement.|
+|4|String|extend functions of string.|
 
 
 ### 2 Changelog & Version Control
+
+`v0.2.6` on 14 Feb 2018: added string extend module. 
 
 `v0.2.5` on 11 Feb 2018: added webpack compress module. 
 
