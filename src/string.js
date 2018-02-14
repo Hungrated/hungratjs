@@ -1,5 +1,6 @@
 /**
- * 字符串方法补充模块 `兼容IE9以上`
+ * 字符串方法补充模块
+ * `加入部分新特性方法以兼容旧设备`
  * @module String
  * @see module:String
  * @author Hungrated zhang295415658@qq.com
@@ -7,6 +8,11 @@
 
 'use strict';
 
+/**
+ * 消除字符串左空格
+ * @function trimLeftSpace
+ * @returns {String} 消除空格后的字符串
+ */
 if (!String.prototype.trimLeftSpace) {
   Object.defineProperty(String.prototype, 'trimLeftSpace',
     {
@@ -17,6 +23,11 @@ if (!String.prototype.trimLeftSpace) {
     });
 }
 
+/**
+ * 消除字符串右空格
+ * @function trimRightSpace
+ * @returns {String} 消除空格后的字符串
+ */
 if (!String.prototype.trimRightSpace) {
   Object.defineProperty(String.prototype, 'trimRightSpace',
     {
@@ -27,6 +38,11 @@ if (!String.prototype.trimRightSpace) {
     });
 }
 
+/**
+ * 消除字符串空格
+ * @function trimSpace
+ * @returns {String} 消除左右两端空格后的字符串
+ */
 if (!String.prototype.trimSpace) {
   Object.defineProperty(String.prototype, 'trimSpace',
     {
@@ -37,6 +53,11 @@ if (!String.prototype.trimSpace) {
     });
 }
 
+/**
+ * 字符串首字母大写
+ * @function capitalize
+ * @returns {String} 首字母大写后的字符串
+ */
 if (!String.prototype.capitalize) {
   Object.defineProperty(String.prototype, 'capitalize',
     {
@@ -48,6 +69,11 @@ if (!String.prototype.capitalize) {
     });
 }
 
+/**
+ * 字符串单词计数
+ * @function wordCount
+ * @returns {Number} 字符串所含单词数
+ */
 if (!String.prototype.wordCount) {
   Object.defineProperty(String.prototype, 'wordCount',
     {
@@ -58,26 +84,43 @@ if (!String.prototype.wordCount) {
     });
 }
 
+/**
+ * 截取字符串左端子串
+ * @function sliceLeft
+ * @param {Number} _length 子串长度
+ * @returns {String} 截取的子串
+ */
 if (!String.prototype.sliceLeft) {
   Object.defineProperty(String.prototype, 'sliceLeft',
     {
-      value (n) {
-        return this.slice(0, n);
+      value (_length) {
+        return this.slice(0, _length);
       },
       enumerable: false
     });
 }
 
+/**
+ * 截取字符串右端子串
+ * @function sliceRight
+ * @param {Number} _length 子串长度
+ * @returns {String} 截取的子串
+ */
 if (!String.prototype.sliceRight) {
   Object.defineProperty(String.prototype, 'sliceRight',
     {
-      value (n) {
-        return this.slice(this.length - n);
+      value (_length) {
+        return this.slice(this.length - _length);
       },
       enumerable: false
     });
 }
 
+/**
+ * HTML编码处理
+ * @function htmlEncode
+ * @returns {String} 处理后的字符串
+ */
 if (!String.prototype.htmlEncode) {
   Object.defineProperty(String.prototype, 'htmlEncode',
     {
@@ -94,49 +137,73 @@ if (!String.prototype.htmlEncode) {
     });
 }
 
+/**
+ * 搜索是否包含指定子串
+ * `建议用includes代替indexOf方法，因为indexOf返回number，当找到返回位置0时若当作布尔值则判定为false，容易出错`
+ * @function includes
+ * @param {String} _search 要搜索的子串
+ * @param {Number} [_start=0] 搜索起始位置 `默认为0`
+ * @returns {Boolean} 搜索是否包含该子串
+ */
 if (!String.prototype.includes) {
-  String.prototype.includes = function (search, start) {
+  String.prototype.includes = function (_search, _start) {
     'use strict';
-    if (typeof start !== 'number') {
-      start = 0;
+    if (typeof _start !== 'number') {
+      _start = 0;
     }
 
-    if (start + search.length > this.length) {
+    if (_start + _search.length > this.length) {
       return false;
     } else {
-      return this.indexOf(search, start) !== -1;
+      return this.indexOf(_search, _start) !== -1;
     }
   };
 }
 
+/**
+ * 从首端填充字符串到指定长度
+ * `ES8新增`
+ * @function padStart
+ * @param {Number} _targetLength 目标长度
+ * @param {String} [_padString=' '] 填充字符串
+ * @returns {String} 填充后的字符串
+ */
 if (!String.prototype.padStart) {
-  String.prototype.padStart = function padStart (targetLength, padString) {
-    targetLength = targetLength >> 0; // floor if number or convert non-number to 0;
-    padString = String(padString || ' ');
-    if (this.length > targetLength) {
+  String.prototype.padStart = function padStart (_targetLength, _padString) {
+    _targetLength = _targetLength >> 0; // floor if number or convert non-number to 0;
+    _padString = String(_padString || ' ');
+    if (this.length > _targetLength) {
       return String(this);
     } else {
-      targetLength = targetLength - this.length;
-      if (targetLength > padString.length) {
-        padString += padString.repeat(targetLength / padString.length); // append to original to ensure we are longer than needed
+      _targetLength = _targetLength - this.length;
+      if (_targetLength > _padString.length) {
+        _padString += _padString.repeat(_targetLength / _padString.length); // append to original to ensure we are longer than needed
       }
-      return padString.slice(0, targetLength) + String(this);
+      return _padString.slice(0, _targetLength) + String(this);
     }
   };
 }
 
+/**
+ * 从首端填充字符串到指定长度
+ * `ES8新增`
+ * @function padEnd
+ * @param {Number} _targetLength 目标长度
+ * @param {String} [_padString=''] 填充字符串
+ * @returns {String} 填充后的字符串
+ */
 if (!String.prototype.padEnd) {
-  String.prototype.padEnd = function padEnd (targetLength, padString) {
-    targetLength = targetLength >> 0; // floor if number or convert non-number to 0;
-    padString = String(padString || ' ');
-    if (this.length > targetLength) {
+  String.prototype.padEnd = function padEnd (_targetLength, _padString) {
+    _targetLength = _targetLength >> 0; // floor if number or convert non-number to 0;
+    _padString = String(_padString || ' ');
+    if (this.length > _targetLength) {
       return String(this);
     } else {
-      targetLength = targetLength - this.length;
-      if (targetLength > padString.length) {
-        padString += padString.repeat(targetLength / padString.length); // append to original to ensure we are longer than needed
+      _targetLength = _targetLength - this.length;
+      if (_targetLength > _padString.length) {
+        _padString += _padString.repeat(_targetLength / _padString.length); // append to original to ensure we are longer than needed
       }
-      return String(this) + padString.slice(0, targetLength);
+      return String(this) + _padString.slice(0, _targetLength);
     }
   };
 }

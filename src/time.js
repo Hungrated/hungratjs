@@ -1,7 +1,8 @@
 /**
  * 时间模块
  * @module Time
- * @see module:Time
+ * @see 使用的模块
+ * @see module:String
  * @author Hungrated zhang295415658@qq.com
  */
 
