@@ -45,6 +45,7 @@ module.exports = {
     "no-dupe-keys": "error",
     "semi": [2, "always"],
     "no-unused-expressions": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "no-extend-native": "off"
   }
 };

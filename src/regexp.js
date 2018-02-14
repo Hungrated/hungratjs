@@ -5,6 +5,8 @@
  * @author Hungrated zhang295415658@qq.com
  */
 
+'use strict';
+
 /**
  * 数字千分位格式化
  * @function addCommaFormat
@@ -78,8 +80,10 @@ let getRegExpString = (_type) => {
 let getRegExp = (_regexp, _attr) => {
   if (typeof _regexp === 'string') {
     return new RegExp(_regexp, _attr);
-  } else {
+  } else if (typeof _regexp === 'object') {
     return _regexp;
+  } else {
+    return new RegExp('');
   }
 };
 

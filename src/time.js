@@ -1,9 +1,13 @@
 /**
  * 时间模块
  * @module Time
- * @see module:Time
+ * @see 使用的模块
+ * @see module:String
  * @author Hungrated zhang295415658@qq.com
  */
+
+'use strict';
+import './string';
 
 /**
  * 将100以下的正数标准化为两位或三位数字字符串
@@ -13,17 +17,16 @@
  * @returns {String} 标准化后的数字字符串
  */
 const convert = (_digit, _two = true) => {
-  if (_digit >= 0 && _digit < 10) {
-    return (_two ? '0' : '00') + _digit.toString();
-  } else if (_digit < 100) {
-    return _two ? _digit.toString() : '0' + _digit.toString();
+  if (_digit >= 0 && _digit < 100) {
+    return _two ? _digit.toString().padStart(2, '0') : _digit.toString().padStart(3, '0');
   } else {
     return _digit.toString();
   }
 };
 
 /**
- * 将时间统一返回为Date类型 `若传入值为null则返回值也为null`
+ * 将时间统一返回为Date类型
+ * `若传入值为null则返回值也为null`
  * @function convertToDateObject
  * @param {Number|Object} [_time = new Date()] 时间
  * @returns {Object} 时间对象
@@ -154,6 +157,8 @@ let getAbsoluteTime = (_time) => {
 
 /**
  * 获取时间差毫秒数
+ * `若无第二参数，则返回给定第一参数到现在时间差的毫秒数`
+ * `若第一参数小于第二参数，则执行效果像两参数调换顺序一样`
  * @function getTimeDifference
  * @param {Object} _timeLater 较晚时间绝对毫秒数
  * @param {Object} _timeEarlier 较早时间绝对毫秒数
