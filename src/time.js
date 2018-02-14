@@ -24,7 +24,8 @@ const convert = (_digit, _two = true) => {
 };
 
 /**
- * 将时间统一返回为Date类型 `若传入值为null则返回值也为null`
+ * 将时间统一返回为Date类型
+ * `若传入值为null则返回值也为null`
  * @function convertToDateObject
  * @param {Number|Object} [_time = new Date()] 时间
  * @returns {Object} 时间对象
@@ -155,6 +156,8 @@ let getAbsoluteTime = (_time) => {
 
 /**
  * 获取时间差毫秒数
+ * `若无第二参数，则返回给定第一参数到现在时间差的毫秒数`
+ * `若第一参数小于第二参数，则执行效果像两参数调换顺序一样`
  * @function getTimeDifference
  * @param {Object} _timeLater 较晚时间绝对毫秒数
  * @param {Object} _timeEarlier 较早时间绝对毫秒数
