@@ -46,5 +46,4 @@ test(() => {
   // console.log('Pumas are large and cat-like animals.'.wordIncludes('Puma'));
   // console.log('Pumas are large and cat-like animals.'.wordIncludes('Pumas'));
   console.log('Pumas are large and cat-like animals.'.wordIncludes('Pumas', 2));
-
 });
