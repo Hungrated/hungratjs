@@ -45,5 +45,8 @@ test(() => {
   // console.log('Pumas are large and cat-like animals.'.includes('Puma', 3));
   // console.log('Pumas are large and cat-like animals.'.wordIncludes('Puma'));
   // console.log('Pumas are large and cat-like animals.'.wordIncludes('Pumas'));
-  console.log('Pumas are large and cat-like animals.'.wordIncludes('Pumas', 2));
+  // console.log('Pumas are large and cat-like animals.'.wordIncludes('Pumas', 2));
+
+  // number.js
+  console.log((12323456675463).addCommaFormat());
 });

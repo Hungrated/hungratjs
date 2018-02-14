@@ -8,16 +8,6 @@
 'use strict';
 
 /**
- * 数字千分位格式化
- * @function addCommaFormat
- * @param {Number} _num 数字
- * @returns {String} 千分位格式化后的数字
- */
-let addCommaFormat = (_num) => {
-  return _num.toString().replace(/\d(?=(\d{3})+$)/g, '$&,');
-};
-
-/**
  * 获取正则表达式模板
  * @function getRegExpString
  * @param {String} _type 类型
@@ -99,5 +89,5 @@ let testType = (_str, _type) => {
 };
 
 export {
-  testType, addCommaFormat
+  testType
 };

@@ -180,14 +180,14 @@ if (!String.prototype.wordIncludes) {
  */
 if (!String.prototype.padStart) {
   String.prototype.padStart = function padStart (_targetLength, _padString) {
-    _targetLength = _targetLength >> 0; // floor if number or convert non-number to 0;
+    _targetLength = _targetLength >> 0;
     _padString = String(_padString || ' ');
     if (this.length > _targetLength) {
       return String(this);
     } else {
       _targetLength = _targetLength - this.length;
       if (_targetLength > _padString.length) {
-        _padString += _padString.repeat(_targetLength / _padString.length); // append to original to ensure we are longer than needed
+        _padString += _padString.repeat(_targetLength / _padString.length);
       }
       return _padString.slice(0, _targetLength) + String(this);
     }
@@ -199,19 +199,19 @@ if (!String.prototype.padStart) {
  * `ES8新增`
  * @function padEnd
  * @param {Number} _targetLength 目标长度
- * @param {String} [_padString=''] 填充字符串
+ * @param {String} [_padString=' '] 填充字符串
  * @returns {String} 填充后的字符串
  */
 if (!String.prototype.padEnd) {
   String.prototype.padEnd = function padEnd (_targetLength, _padString) {
-    _targetLength = _targetLength >> 0; // floor if number or convert non-number to 0;
+    _targetLength = _targetLength >> 0;
     _padString = String(_padString || ' ');
     if (this.length > _targetLength) {
       return String(this);
     } else {
       _targetLength = _targetLength - this.length;
       if (_targetLength > _padString.length) {
-        _padString += _padString.repeat(_targetLength / _padString.length); // append to original to ensure we are longer than needed
+        _padString += _padString.repeat(_targetLength / _padString.length);
       }
       return String(this) + _padString.slice(0, _targetLength);
     }
