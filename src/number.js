@@ -22,6 +22,12 @@ if (!Number.prototype.addCommaFormat) {
   });
 }
 
+/**
+ * 将数字转化为千字节单位
+ * @function toKiloBytes
+ * @param {Number} [_length] 小数点后保留位数 `默认为2`
+ * @returns {Number} 单位转化后的数字
+ */
 if (!Number.prototype.toKiloBytes) {
   Object.defineProperty(Number.prototype, 'toKiloBytes', {
     value (_length) {
@@ -31,6 +37,12 @@ if (!Number.prototype.toKiloBytes) {
   });
 }
 
+/**
+ * 将数字转化为兆字节单位
+ * @function toMegaBytes
+ * @param {Number} [_length] 小数点后保留位数 `默认为2`
+ * @returns {Number} 单位转化后的数字
+ */
 if (!Number.prototype.toMegaBytes) {
   Object.defineProperty(Number.prototype, 'toMegaBytes', {
     value (_length) {
@@ -40,6 +52,12 @@ if (!Number.prototype.toMegaBytes) {
   });
 }
 
+/**
+ * 将数字转化为千兆字节单位
+ * @function toGigaBytes
+ * @param {Number} [_length] 小数点后保留位数 `默认为2`
+ * @returns {Number} 单位转化后的数字
+ */
 if (!Number.prototype.toGigaBytes) {
   Object.defineProperty(Number.prototype, 'toGigaBytes', {
     value (_length) {
