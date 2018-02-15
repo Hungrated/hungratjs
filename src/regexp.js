@@ -11,6 +11,9 @@
  * 获取正则表达式模板
  * @function getRegExpString
  * @param {String} _type 类型
+ * 可选值有 `number`数字 `char`字母 `numChar`数字与字母 `numCharUnderline`数字、字母与下划线 `email`邮箱地址 `domain`域名
+ * `url`url `phone`手机号码 `tel`电话号码 `idCard`身份证号码 `password`密码 `date`日期格式 `month`月份 `day`日期
+ * `zhCn`中文字符 `blankLine`空行 `blankChar`空字符 `qq`QQ号码 `zipCode`邮政编码 `ip`IP地址
  * @returns {String} 类型对应的正则表达式字符串
  */
 let getRegExpString = (_type) => {
@@ -80,6 +83,8 @@ let getRegExp = (_regexp, _attr) => {
 /**
  * 判断字符串是否属于某一类型模式
  * @function testType
+ * @see module:RegExp~getRegExp
+ * @see module:RegExp~getRegExpString
  * @param {String} _str 待匹配字符串
  * @param {String} _type 匹配类型
  * @returns {Boolean} 是否匹配的结果
