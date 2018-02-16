@@ -49,4 +49,6 @@ test(() => {
 
   // number.js
   console.log((12323456675463).addCommaFormat());
+  console.log((12323456675463).toMegaBytes(4) + ' MB');
+  console.log((12323456675463).toGigaBytes() + ' GB');
 });
