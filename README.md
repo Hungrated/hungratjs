@@ -18,9 +18,12 @@ npm install
 |2|Uid|generating unique identifiers.|
 |3|RegExp|functions for string validating & replacement.|
 |4|String|extend functions of string.|
+|5|Number|extend functions of number.|
 
 
 ### 2 Changelog & Version Control
+
+`v0.2.7` on 16 Feb 2018: added number extend module. 
 
 `v0.2.6` on 14 Feb 2018: added string extend module. 
 
