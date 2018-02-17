@@ -30,7 +30,8 @@ test(() => {
   // console.log(utils.RegExp.testType('13456789000', 'phone'));
   //
   // // uuid.js
-  // console.log(utils.Uid.generate(), utils.Uid.generate(), utils.Uid.generate());
+  console.log(utils.Uid.generate(), utils.Uid.generate(), utils.Uid.generate());
+  console.log(utils.Uid.generateDigit(), utils.Uid.generateDigit(), utils.Uid.generateDigit());
   //
   // // string.js
   // let temp = '   testString   ';
