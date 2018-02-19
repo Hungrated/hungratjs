@@ -50,9 +50,7 @@ test(() => {
 
   // number.js
   // console.log((12323456675463).addCommaFormat());
-  console.log((12323456675463).toMegaBytes() + ' MB');
-  console.log((12323456675463).toGigaBytes() + ' GB');
-
-  // ajax.js
+  // console.log((12323456675463).toMegaBytes() + ' MB');
+  // console.log((12323456675463).toGigaBytes() + ' GB');
 
 });
