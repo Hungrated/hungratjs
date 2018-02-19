@@ -30,8 +30,8 @@ test(() => {
   // console.log(utils.RegExp.testType('13456789000', 'phone'));
   //
   // // uuid.js
-  console.log(utils.Uid.generate(), utils.Uid.generate(), utils.Uid.generate());
-  console.log(utils.Uid.generateDigit(), utils.Uid.generateDigit(), utils.Uid.generateDigit());
+  // console.log(utils.Uid.generate(), utils.Uid.generate(), utils.Uid.generate());
+  // console.log(utils.Uid.generateDigit(), utils.Uid.generateDigit(), utils.Uid.generateDigit());
   //
   // // string.js
   // let temp = '   testString   ';
@@ -49,7 +49,10 @@ test(() => {
   // console.log('Pumas are large and cat-like animals.'.wordIncludes('Pumas', 2));
 
   // number.js
-  console.log((12323456675463).addCommaFormat());
-  console.log((12323456675463).toMegaBytes(4) + ' MB');
+  // console.log((12323456675463).addCommaFormat());
+  console.log((12323456675463).toMegaBytes() + ' MB');
   console.log((12323456675463).toGigaBytes() + ' GB');
+
+  // ajax.js
+
 });

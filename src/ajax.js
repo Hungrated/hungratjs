@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-function ajax (_reqObj) {
+let ajax = (_reqObj, _contentType) => {
   let xhr = null;
   window.XMLHttpRequest
     ? (xhr = new XMLHttpRequest())
@@ -8,30 +8,102 @@ function ajax (_reqObj) {
   let url = _reqObj.url;
   let async = _reqObj.async || true;
   let data = _reqObj.data;
-  let fn = _reqObj.fn;
+  let success = _reqObj.success;
 
-  // 第一种情况：如果是用get方法，并且data是存在的，就执行：
-  if (method === 'get' && data) {
-    xhr.open(method, url + '?' + data + '&' + Math.random(), async);
-  }
-
-  // 第二种情况：如果是用post方法，并且data是存在的，就执行：
-  if (method === 'post' && data) {
+  // get
+  if (method.toLowerCase() === 'get') {
     xhr.open(method, url, async);
-    xhr.setRequestHeader('content-type', 'application/json');
-    xhr.send(data);
-  } else {
-    xhr.send();
+    xhr.send(null);
   }
 
-  // 数据传输成功之后
-  xhr.onReadyStateChange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        fn(xhr.responseText);
-      } else {
-        alert('error');
-      }
+  // post
+  if (method.toLowerCase() === 'post' && data) {
+    xhr.open(method, url, async);
+    xhr.setRequestHeader('content-type', _contentType || 'application/json');
+    xhr.send(data);
+  }
+
+  // success
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 200 && xhr.status < 300) {
+      success(xhr.responseText);
+    } else {
+      console.log('error');
     }
   };
+};
+/*
+jsonp({
+  url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+  type: 'get',
+  data:{
+    wd: 'jsonp'
+  },
+  callback: 'cb',
+  success: function (data) { console.log(data) }
+});
+
+
+function format(data) {
+  let str = ''
+  for (var p in data) {
+    str += encodeURIComponent(p) + '=' + encodeURIComponent(data[p]) + '&'
+  }
+  return str
 }
+*/
+
+const get = (_url, _sucCb) => {
+  ajax({
+    method: 'GET',
+    url: _url,
+    async: true,
+    success: _sucCb
+  });
+};
+
+const post = (_url, _data, _contentType, _sucCb) => {
+  ajax({
+    method: 'POST',
+    url: _url,
+    async: true,
+    data: _data,
+    success: _sucCb
+  }, _contentType);
+};
+
+const postJSON = (_url, _data, _sucCb) => {
+  post(_url, _data, 'application/json', _sucCb);
+};
+
+const postFormData = (_url, _formData, _sucCb) => {
+  post(_url, _formData, 'multipart/form-data', _sucCb);
+};
+
+let jsonp = (_url, _data, _callback, _sucCb) => {
+  let url = _url;
+  let data = _data;
+
+  let oBody = document.getElementsByTagName('body')[0];
+  let oScript = document.createElement('script');
+  let createQueryString = (_data) => {
+    let queryString = '';
+    for (let p in _data) {
+      queryString = queryString + `&${encodeURIComponent(p)}=${encodeURIComponent(data[p])}`;
+    }
+    return queryString.substring(1);
+  };
+
+  let callbackName = 'cb' + (~~(Math.random() * 0xffffff)).toString(16);
+  window[callbackName] = (_result) => _sucCb(_result);
+  data[_callback] = callbackName;
+
+  oScript.setAttribute('src', url + '?' + createQueryString(data));
+  oBody.append(oScript);
+};
+
+export {
+  get,
+  postJSON,
+  postFormData
+};
