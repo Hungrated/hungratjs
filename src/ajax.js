@@ -15,7 +15,7 @@ const ajax = (_reqObj, _contentType) => {
   let method = _reqObj.method || 'get';
   let url = _reqObj.url;
   let async = _reqObj.async || true;
-  let data = _reqObj.data;
+  let data = JSON.stringify(_reqObj.data);
   let success = _reqObj.success;
 
   // get
@@ -28,42 +28,25 @@ const ajax = (_reqObj, _contentType) => {
   if (method.toLowerCase() === 'post' && data) {
     xhr.open(method, url, async);
     xhr.setRequestHeader('content-type', _contentType || 'application/json');
+    console.log(data, _contentType);
     xhr.send(data);
   }
 
   // success
   xhr.onreadystatechange = () => {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 200 && xhr.status < 300) {
-      success(xhr.responseText);
+      console.log(xhr.responseText);
+      success(JSON.parse(xhr.responseText));
     }
   };
 };
-/*
-jsonp({
-  url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
-  type: 'get',
-  data:{
-    wd: 'jsonp'
-  },
-  callback: 'cb',
-  success: function (data) { console.log(data) }
-});
-
-function format(data) {
-  let str = ''
-  for (var p in data) {
-    str += encodeURIComponent(p) + '=' + encodeURIComponent(data[p]) + '&'
-  }
-  return str
-}
-*/
 
 const get = (_url, _data, _sucCb) => {
-  if (typeof arguments[2] === 'function' && arguments[1]) {
+  if (typeof _data === 'object') {
     _url = _url + '?' + createQueryString(_data) + `&t=${Math.random().toString().substring(2)}`;
   } else {
     _url = _url + `?t=${Math.random().toString().substring(2)}`;
-    _sucCb = arguments[1];
+    _sucCb = _data;
   }
   ajax({
     method: 'GET',
