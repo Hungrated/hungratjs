@@ -1,7 +1,7 @@
 /**
  * 字符串正则匹配模块
- * @module RegExp
- * @see module:RegExp
+ * @module RegEx
+ * @see module:RegEx
  * @author Hungrated zhang295415658@qq.com
  */
 

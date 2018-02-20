@@ -1,12 +1,11 @@
 {
   "name": "js-common-tools",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "A common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/babel src -d lib --ignore src/docs && node index.js",
-    "doc": "jsdoc -c jsdoc_conf.json -r -d src/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2",
-    "build": "webpack"
+    "doc": "jsdoc -c jsdoc_conf.json -r -d dist/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2",
+    "build": "webpack && node test_env_build.js && node dist/test_server.js"
   },
   "keywords": [
     "tool"
@@ -17,12 +16,14 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
+    "body-parser": "^1.18.2",
     "eslint": "^4.17.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
+    "express": "^4.16.2",
     "jaguarjs-jsdoc-patched-2": "0.0.6",
     "jsdoc": "^3.5.5",
     "webpack": "^3.11.0",

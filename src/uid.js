@@ -16,6 +16,10 @@ const generate = () => {
   return (((1 + Math.random()) * 0x1000000) | 0).toString(16).substring(1);
 };
 
+const generateDigit = () => {
+  return Math.random().toString().slice(-6);
+};
+
 export {
-  generate
+  generate, generateDigit
 };
