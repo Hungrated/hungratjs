@@ -4,9 +4,8 @@
   "description": "A common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/babel src -d lib --ignore src/docs && node index.js",
-    "doc": "jsdoc -c jsdoc_conf.json -r -d src/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2",
-    "build": "webpack"
+    "doc": "jsdoc -c jsdoc_conf.json -r -d dist/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2",
+    "build": "webpack && node test_env_build.js && node dist/test_server.js"
   },
   "keywords": [
     "tool"
