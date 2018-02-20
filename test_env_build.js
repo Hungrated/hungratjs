@@ -26,9 +26,13 @@ const createTestServer = function () {
   app.use(bodyParser.urlencoded({
     extended: false
   }));
-
-  console.log('http://localhost:9000/test_client.html');
-  console.log('http://localhost:9000/docs/index.html');
+  
+  console.log('\\n-------------------------------------------------------------------');
+  console.log('* Test environment built.\\n');
+  console.log('* test: \\n http://localhost:9000/test_client.html');
+  console.log('* docs: \\n http://localhost:9000/docs/index.html');
+  console.log('\\n===================================================================\\n');
+  
   app.use(express.static(__dirname));
 
   app.get('/get', function (req, res) {

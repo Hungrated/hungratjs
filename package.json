@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "doc": "jsdoc -c jsdoc_conf.json -r -d dist/docs --readme README.md -t ./node_modules/jaguarjs-jsdoc-patched-2",
-    "build": "webpack && node test_env_build.js && node dist/test_server.js"
+    "build": "webpack",
+    "test": "node test_env_build.js && node dist/test_server.js",
+    "autotest": "npm run build && npm run test"
   },
   "keywords": [
     "tool"
