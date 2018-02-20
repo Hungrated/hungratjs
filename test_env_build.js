@@ -27,15 +27,16 @@ const createTestServer = function () {
 
   app.get('/get', function (req, res) {
     console.log('get');
-    res.send('get test successful');
+    res.json({
+      msg: 'get test successful'
+    });
   });
 
   app.post('/post', function (req, res) {
     console.log('post');
     console.log(req.body);
-    res.send(JSON.stringify(req.body));
+    res.json(req.body);
   });
-
   app.listen(9000);`;
 };
 

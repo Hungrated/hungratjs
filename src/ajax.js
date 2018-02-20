@@ -27,6 +27,7 @@ const ajax = (_reqObj, _contentType) => {
   // post
   if (method.toLowerCase() === 'post' && data) {
     xhr.open(method, url, async);
+    xhr.responseType = 'json';
     xhr.setRequestHeader('content-type', _contentType || 'application/json');
     console.log(data, _contentType);
     xhr.send(data);
@@ -35,8 +36,7 @@ const ajax = (_reqObj, _contentType) => {
   // success
   xhr.onreadystatechange = () => {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 200 && xhr.status < 300) {
-      console.log(xhr.responseText);
-      success(JSON.parse(xhr.responseText));
+      success(JSON.parse(xhr.response));
     }
   };
 };
@@ -70,26 +70,24 @@ const postJSON = (_url, _data, _sucCb) => {
   post(_url, _data, 'application/json', _sucCb);
 };
 
-const postFormData = (_url, _formData, _sucCb) => {
-  post(_url, _formData, 'multipart/form-data', _sucCb);
-};
+// const postFormData = (_url, _formData, _sucCb) => {
+//   post(_url, _formData, 'multipart/form-data', _sucCb);
+// };
 
-const jsonp = (_url, _data, _callback, _sucCb) => {
-  let url = _url;
-  let data = _data;
-  let oBody = document.getElementsByTagName('body')[0];
-  let oScript = document.createElement('script');
-  let callbackName = 'cb' + (~~(Math.random() * 0xffffff)).toString(16);
-  window[callbackName] = (_result) => _sucCb(_result);
-  data[_callback] = callbackName;
-  oScript.setAttribute('src', url + '?' + createQueryString(data));
-  oBody.append(oScript);
-};
+// const jsonp = (_url, _data, _callback, _sucCb) => {
+//   let url = _url;
+//   let data = _data;
+//   let oBody = document.getElementsByTagName('body')[0];
+//   let oScript = document.createElement('script');
+//   let callbackName = 'cb' + (~~(Math.random() * 0xffffff)).toString(16);
+//   window[callbackName] = (_result) => _sucCb(_result);
+//   data[_callback] = callbackName;
+//   oScript.setAttribute('src', url + '?' + createQueryString(data));
+//   oBody.append(oScript);
+// };
 
 export {
   ajax,
   get,
-  postJSON,
-  postFormData,
-  jsonp
+  postJSON
 };
