@@ -10,20 +10,28 @@ let htmlLog = function (_str) {
   document.write(`<p>${_str}</p>`);
 };
 
+let logPromise = new Promise(function (resolve, reject) {
+  resolve();
+});
+
 let test = function (body) {
-  htmlLog(
-    '<br>' +
-    '-------------------------------------------------------------------<br>' +
-    '<strong>* Test Result:</strong><br><br>'
-  );
-
-  body();
-
-  htmlLog(
-    '<br><br>' +
-    '<strong> * Test End.</strong><br>' +
-    '===================================================================<br>'
-  );
+  logPromise.then(function () {
+    htmlLog(
+      '<br>' +
+      '-------------------------------------------------------------------<br>' +
+      '<strong>* Test Result:</strong><br><br>'
+    );
+  })
+    .then(function () {
+      body();
+    })
+    .then(function () {
+      htmlLog(
+        '<br><br>' +
+        '<strong> * Test End.</strong><br>' +
+        '===================================================================<br>'
+      );
+    });
 };
 
 test(function () {
@@ -58,19 +66,19 @@ test(function () {
   // htmlLog('Pumas are large and cat-like animals.'.wordIncludes('Pumas'));
   // htmlLog('Pumas are large and cat-like animals.'.wordIncludes('Pumas', 2));
   //
-  // // number.js
+  // number.js
   // htmlLog((12323456675463).addCommaFormat());
   // htmlLog((12323456675463).toMegaBytes() + ' MB');
   // htmlLog((12323456675463).toGigaBytes() + ' GB');
 
   // ajax.js
   Ajax.get('http://localhost:9000/get', function (data) {
-    htmlLog(JSON.stringify(data));
+    htmlLog(data);
+    Ajax.postJSON('http://localhost:9000/post', {
+      a: 'a',
+      b: 'b'
+    }, function (data) {
+      htmlLog(JSON.stringify(data));
+    });
   });
-  // Ajax.postJSON('http://localhost:9000/post', {
-  //   a: 'a',
-  //   b: 'b'
-  // }, function (data) {
-  //   htmlLog(data);
-  // });
 });
