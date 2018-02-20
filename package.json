@@ -1,6 +1,6 @@
 {
   "name": "js-common-tools",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "A common javascript tool lib for development",
   "main": "index.js",
   "scripts": {
