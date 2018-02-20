@@ -18,8 +18,14 @@ const createTestClient = function (_compressedJs, _testJs) {
 
 const createTestServer = function () {
   // language=JavaScript
-  return `let express = require('express');
-  let app = express();
+  return `const express = require('express');
+  const bodyParser = require('body-parser');
+  const app = express();
+
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({
+    extended: false
+  }));
 
   console.log('http://localhost:9000/test_client.html');
   console.log('http://localhost:9000/docs/index.html');
@@ -34,8 +40,10 @@ const createTestServer = function () {
 
   app.post('/post', function (req, res) {
     console.log('post');
-    console.log(req.body);
-    res.json(req.body);
+    res.json({
+      res_a: req.body.a,
+      res_b: req.body.b
+    });
   });
   app.listen(9000);`;
 };

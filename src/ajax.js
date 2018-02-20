@@ -50,14 +50,13 @@ const ajax = (_reqObj, _contentType) => {
     xhr.open(method, url, async);
     xhr.responseType = 'json';
     xhr.setRequestHeader('content-type', _contentType || 'application/json');
-    console.log(data, _contentType);
     xhr.send(data);
   }
 
   // success
   xhr.onreadystatechange = () => {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 200 && xhr.status < 300) {
-      success(JSON.parse(xhr.response));
+      success(xhr.response);
     }
   };
 };
