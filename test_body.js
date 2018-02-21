@@ -5,16 +5,14 @@ const Uid = utils.Uid;
 const Ajax = utils.Ajax;
 
 /* test start */
-
 let htmlLog = function (_str) {
   document.write(`<p>${_str}</p>`);
 };
 
-let logPromise = new Promise(function (resolve, reject) {
-  resolve();
-});
-
 let test = function (body) {
+  let logPromise = new Promise(function (resolve, reject) {
+    resolve();
+  });
   logPromise.then(function () {
     htmlLog(
       '<br>' +
