@@ -1,7 +1,19 @@
-import * as Fs from 'fs';
+/**
+ * 文件操作模块
+ * @module fs
+ * @see module:fs
+ * @author Hungrated zhang295415658@qq.com
+ */
 
+import * as fs from 'fs';
+
+/**
+ * 创建目录
+ * @function mkdir
+ * @param {String} _dir 目录
+ */
 const mkdir = function (_dir) {
-  Fs.mkdir(_dir, 0o777, function (err) {
+  fs.mkdir(_dir, 0o777, function (err) {
     if (err) {
       console.log('dir: `' + _dir + '` exists.');
     } else {
@@ -10,8 +22,13 @@ const mkdir = function (_dir) {
   });
 };
 
+/**
+ * 若目录不存在则创建目录
+ * @function mkdirIfNotExist
+ * @param {String} _dir 目录
+ */
 const mkdirIfNotExist = function (_dir) {
-  Fs.access(_dir, function (err) {
+  fs.access(_dir, function (err) {
     if (err && err.code === 'ENOENT') {
       mkdir(_dir);
     } else {
@@ -20,12 +37,18 @@ const mkdirIfNotExist = function (_dir) {
   });
 };
 
-const writeFile = function (path, str) {
-  Fs.writeFile(path, str, function (err) {
+/**
+ * 将内容写入指定文件
+ * @function writeFile
+ * @param {String} _path 目标文件路径
+ * @param {String} _str 写入内容
+ */
+const writeFile = function (_path, _str) {
+  fs.writeFile(_path, _str, function (err) {
     if (err) {
       throw err;
     }
-    console.log('output: ' + path);
+    console.log('output: ' + _path);
   });
 };
 
