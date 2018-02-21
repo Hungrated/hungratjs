@@ -1,5 +1,5 @@
 /**
- * AJAx方法模块
+ * AJAX方法模块
  * `封装原生ajax方法`
  * @module Ajax
  * @see module:Ajax
