@@ -15,9 +15,12 @@ _initial commit on 21st Dec 2017_
 |4|String|extend functions of string.|
 |5|Number|extend functions of number.|
 |6|Ajax|AJAX functions for data interchange.|
+|7|File|file handling functions.|
 
 
 ### 2 Changelog & Version Control
+
+`v0.3.1` on 21 Feb 2018: add module `file`. 
 
 `v0.3.0` on 21 Feb 2018: add module `ajax` & rebase test environment. 
 

@@ -1,7 +1,7 @@
 /**
  * 文件操作模块
- * @module fs
- * @see module:fs
+ * @module File
+ * @see module:File
  * @author Hungrated zhang295415658@qq.com
  */
 
