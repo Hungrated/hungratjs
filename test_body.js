@@ -94,7 +94,8 @@ test(function () {
       htmlLog('task 2 executed');
       next();
     })
-    .add(function () {
+    .add(function (args) {
+      console.log('client: ', args[0], args[1], args[2], args[3]);
       htmlLog('task 3 executed');
     })
     .add(function () {
