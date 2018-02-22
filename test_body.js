@@ -3,6 +3,7 @@ const Time = utils.Time;
 const RegEx = utils.RegEx;
 const Uid = utils.Uid;
 const Ajax = utils.Ajax;
+const Task = utils.Task;
 
 /* test start */
 let htmlLog = function (_str) {
@@ -70,13 +71,29 @@ test(function () {
   // htmlLog((12323456675463).toGigaBytes() + ' GB');
 
   // ajax.js
-  Ajax.get('http://localhost:9000/get', function (data) {
-    htmlLog(data);
-    Ajax.postJSON('http://localhost:9000/post', {
-      a: 'a',
-      b: 'b'
-    }, function (data) {
-      htmlLog(JSON.stringify(data));
-    });
-  });
+  // Ajax.get('http://localhost:9000/get', function (data) {
+  //   htmlLog(data);
+  //   Ajax.postJSON('http://localhost:9000/post', {
+  //     a: 'a',
+  //     b: 'b'
+  //   }, function (data) {
+  //     htmlLog(JSON.stringify(data));
+  //   });
+  // });
+
+  let task = new Task();
+  task
+    .add(function () {
+      htmlLog('task 1 executed');
+    })
+    .add(function () {
+      htmlLog('task 2 executed');
+    })
+    .add(function () {
+      htmlLog('task 3 executed');
+    })
+    .add(function () {
+      htmlLog('task 4 executed');
+    })
+    .execute();
 });

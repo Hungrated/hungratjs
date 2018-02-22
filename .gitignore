@@ -1,5 +1,7 @@
 .idea
 node_modules/
 /js-common-tools.iml
+/js-common-tools.iml.bak
 /package-lock.json
 /dist/
+
