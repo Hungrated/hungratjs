@@ -21,6 +21,8 @@ _initial commit on 21st Dec 2017_
 
 ### 2 Changelog & Version Control
 
+`v0.3.3` on 23 Feb 2018: modify module `task`. 
+
 `v0.3.2` on 23 Feb 2018: add module `task`. 
 
 `v0.3.1` on 21 Feb 2018: add module `file`. 
