@@ -81,7 +81,8 @@ test(function () {
   //   });
   // });
 
-  new Task()
+  let task = new Task();
+  task
     .add(function (next) {
       htmlLog('task 1 executed');
       let objA = {
@@ -90,16 +91,20 @@ test(function () {
       next(objA, 0, 1, 2);
     })
     .add(function (next, args) {
-      console.log('client: ', args[0], args[1], args[2], args[3]);
+      console.log('client: ', args);
       htmlLog('task 2 executed');
       next();
     })
-    .add(function (args) {
-      console.log('client: ', args[0], args[1], args[2], args[3]);
+    .add(function (next, args) {
+      console.log('client: ', args);
       htmlLog('task 3 executed');
+      next();
     })
     .add(function () {
       htmlLog('task 4 executed');
+    })
+    .add(function () {
+      htmlLog('task 5 will not be executed');
     })
     .execute();
 });

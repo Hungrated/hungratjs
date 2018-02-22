@@ -1,5 +1,5 @@
 /**
- * 方法链式执行器 `提供方法串行执行与参数传递功能`
+ * 方法链式执行器 `提供方法（条件）串行执行与参数传递功能`
  * @module Task
  * @see module:Task
  * @author Hungrated zhang295415658@qq.com
@@ -11,11 +11,12 @@
  *         let objA = {
  *             a: 'a'
  *         };
- *         next(objA, 0, 1, 2);
+ *         next(objA, 0, 1);
  *     })
- *     .add(function (args) { // 若无特殊需求则next可省略
+ *     .add(function (next, args) { // 若无特殊需求则next可省略
  *         console.log(args[0], args[1], args[2]);  // {a: 'a'}, 0, 1
  *         console.log('task 2 executed');
+ *         next();
  *     })
  *     .add(function (next, args) {
  *         console.log(args[0], args[1], args[2]);  // undefined undefined undefined
@@ -27,7 +28,14 @@
  *     .add(function () {
  *         console.log('task 4 executed');
  *     })
+ *     .add(function () {
+ *         console.log('task 5 executed'); // 此行将不会被执行
+ *     })
  *     .execute(); // 最后用execute()来执行所有操作
+ *
+ * // 注意事项：
+ * // 1. 若要使用args参数，则必须与next一起传递（注意顺序：next在前，args在后）
+ * // 2. next不在方法体内写明时，将执行到当前方法为止
  */
 
 class Task {
@@ -51,11 +59,13 @@ class Task {
    */
   add (_taskFn) {
     let _this = this;
-    this.tasks.push(function (_args) {
-      _taskFn(function () {
-        Task.next(_this, arguments);
-      }, _args);
-      Task.next(_this);
+    this.tasks.push(function (_args) { // args in 3
+      _taskFn(
+        function () {
+          Task.next(_this, arguments); // args out 1
+        },
+        _args
+      );
     });
     return this;
   }
@@ -68,7 +78,7 @@ class Task {
    */
   static next (_this, _args) {
     if (_this.tasks.length) {
-      (_this.tasks.shift())(_args);
+      (_this.tasks.shift())(_args); // args out 2
     }
   }
 }
