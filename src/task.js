@@ -1,5 +1,5 @@
 /**
- * 链式方法执行器 `提供方法串行执行与参数传递功能`
+ * 方法链式执行器 `提供方法串行执行与参数传递功能`
  * @module Task
  * @see module:Task
  * @author Hungrated zhang295415658@qq.com
@@ -22,7 +22,7 @@
  *         if(!args[0]) { // next可实现条件跳转，跳过不必要的代码
  *             next();
  *         }
- *         console.log('task 3 executed'); // 此段将不会执行
+ *         console.log('task 3 executed'); // 此行将不会被执行
  *     })
  *     .add(function () {
  *         console.log('task 4 executed');
@@ -36,7 +36,7 @@ class Task {
   }
 
   /**
-   * 开启链式方法执行器
+   * 开启链式执行器
    * @function execute
    */
   execute () {
@@ -46,7 +46,7 @@ class Task {
   /**
    * 顺序新增一个方法
    * @function add
-   * @param _taskFn
+   * @param {Function} _taskFn
    * @returns {Object} Task对象
    */
   add (_taskFn) {
