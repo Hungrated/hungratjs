@@ -81,13 +81,14 @@ test(function () {
   //   });
   // });
 
-  let task = new Task();
-  task
-    .add(function () {
+  new Task()
+    .add(function (next) {
       htmlLog('task 1 executed');
+      next('1');
     })
-    .add(function () {
+    .add(function (next) {
       htmlLog('task 2 executed');
+      next('2');
     })
     .add(function () {
       htmlLog('task 3 executed');

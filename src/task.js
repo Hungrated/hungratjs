@@ -4,21 +4,24 @@ class Task {
   }
 
   execute () {
-    this.next();
+    this.next(this);
   }
 
   add (_taskFn) {
     let _this = this;
     this.tasks.push(function () {
-      _taskFn();
-      _this.next();
+      _taskFn(function () {
+        console.log(arguments);
+        _this.next(_this);
+      });
+      _this.next(_this);
     });
     return this;
   }
 
-  next () {
-    if (this.tasks.length) {
-      (this.tasks.shift())();
+  next (_this) {
+    if (_this.tasks.length) {
+      (_this.tasks.shift())();
     }
   }
 }
