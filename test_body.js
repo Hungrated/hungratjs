@@ -99,8 +99,11 @@ test(function () {
 
   task.add(function (next, args) {
     console.log('client: ', args);
-    htmlLog('task 3 executed');
-    next();
+    if (args[0]) {
+      htmlLog('task 3 will not be executed');
+    } else {
+      next();
+    }
   });
 
   task.add(function () {

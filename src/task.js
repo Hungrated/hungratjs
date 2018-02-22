@@ -6,14 +6,14 @@
  *
  * @example
  * new Task()
- *     .add(function (next) { // next参数可选，若要传参或条件跳转则声明next参数
+ *     .add(function (next) { // 若要传参或条件跳转则声明next参数
  *         console.log('task 1 executed');
  *         let objA = {
  *             a: 'a'
  *         };
  *         next(objA, 0, 1);
  *     })
- *     .add(function (next, args) { // 若无特殊需求则next可省略
+ *     .add(function (next, args) {
  *         console.log(args[0], args[1], args[2]);  // {a: 'a'}, 0, 1
  *         console.log('task 2 executed');
  *         next();
@@ -22,14 +22,15 @@
  *         console.log(args[0], args[1], args[2]);  // undefined undefined undefined
  *         if(!args[0]) { // next可实现条件跳转，跳过不必要的代码
  *             next();
+ *         } else {
+ *             console.log('task 3 will not be executed'); // 此行将不会被执行
  *         }
- *         console.log('task 3 executed'); // 此行将不会被执行
  *     })
  *     .add(function () {
  *         console.log('task 4 executed');
  *     })
  *     .add(function () {
- *         console.log('task 5 executed'); // 此行将不会被执行
+ *         console.log('task 5 will not be executed'); // 此行将不会被执行
  *     })
  *     .execute(); // 最后用execute()来执行所有操作
  *
@@ -54,7 +55,7 @@ class Task {
   /**
    * 顺序新增一个方法
    * @function add
-   * @param {Function} _taskFn
+   * @param {Function} _taskFn 自定义逻辑中的某个方法
    * @returns {Object} Task对象
    */
   add (_taskFn) {
