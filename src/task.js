@@ -4,24 +4,24 @@ class Task {
   }
 
   execute () {
-    this.next(this);
+    Task.next(this);
   }
 
   add (_taskFn) {
     let _this = this;
-    this.tasks.push(function () {
+    this.tasks.push(function (_args) {
       _taskFn(function () {
-        console.log(arguments);
-        _this.next(_this);
-      });
-      _this.next(_this);
+        const args = arguments;
+        Task.next(_this, args);
+      }, _args);
+      Task.next(_this);
     });
     return this;
   }
 
-  next (_this) {
+  static next (_this, _args) {
     if (_this.tasks.length) {
-      (_this.tasks.shift())();
+      (_this.tasks.shift())(_args);
     }
   }
 }

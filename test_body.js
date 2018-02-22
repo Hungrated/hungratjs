@@ -84,11 +84,15 @@ test(function () {
   new Task()
     .add(function (next) {
       htmlLog('task 1 executed');
-      next('1');
+      let objA = {
+        a: 'a'
+      };
+      next(objA, 0, 1, 2);
     })
-    .add(function (next) {
+    .add(function (next, args) {
+      console.log('client: ', args[0], args[1], args[2], args[3]);
       htmlLog('task 2 executed');
-      next('2');
+      next();
     })
     .add(function () {
       htmlLog('task 3 executed');
