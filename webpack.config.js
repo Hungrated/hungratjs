@@ -6,7 +6,7 @@ module.exports = {
   output: {
     libraryTarget: 'umd',
     path: path.join(__dirname, 'dist'),
-    filename: 'js-common-tools.js'
+    filename: 'js-common-tools.min.js'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({

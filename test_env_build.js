@@ -52,7 +52,7 @@ const createTestServer = function () {
   app.listen(9000);`;
 };
 
-const compressedJs = fs.readFileSync('dist/js-common-tools.js').toString();
+const compressedJs = fs.readFileSync('dist/js-common-tools.min.js').toString();
 
 const testJs = fs.readFileSync('./test_body.js').toString().split('/* test start */')[1];
 
