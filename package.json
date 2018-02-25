@@ -10,7 +10,8 @@
     "autotest": "npm run build && npm run test"
   },
   "keywords": [
-    "tool"
+    "tool",
+    "javascript"
   ],
   "author": "hungrated",
   "license": "MIT",
