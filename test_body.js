@@ -81,37 +81,43 @@ test(function () {
   //   });
   // });
 
-  let task = new Task();
+  // // task.js
+  // let task = new Task();
+  //
+  // task.add(function (next) {
+  //   htmlLog('task 1 executed');
+  //   let objA = {
+  //     a: 'a'
+  //   };
+  //   next(objA, 0, 1, 2);
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args);
+  //   htmlLog('task 2 executed');
+  //   next();
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args);
+  //   if (args[0]) {
+  //     htmlLog('task 3 will not be executed');
+  //   } else {
+  //     next();
+  //   }
+  // });
+  //
+  // task.add(function () {
+  //   htmlLog('task 4 executed');
+  // });
+  //
+  // task.add(function () {
+  //   htmlLog('task 5 will not be executed');
+  // });
+  // task.execute();
 
-  task.add(function (next) {
-    htmlLog('task 1 executed');
-    let objA = {
-      a: 'a'
-    };
-    next(objA, 0, 1, 2);
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args);
-    htmlLog('task 2 executed');
-    next();
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args);
-    if (args[0]) {
-      htmlLog('task 3 will not be executed');
-    } else {
-      next();
-    }
-  });
-
-  task.add(function () {
-    htmlLog('task 4 executed');
-  });
-
-  task.add(function () {
-    htmlLog('task 5 will not be executed');
-  });
-  task.execute();
+  // list.js
+  let arr = [1, 2, 3];
+  htmlLog(arr.toString());
+  htmlLog(List.parseList(arr.toString()));
 });

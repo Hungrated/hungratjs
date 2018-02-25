@@ -7,6 +7,7 @@ import './number';
 import * as Ajax from './ajax';
 import * as File from './file';
 import { Task } from './task';
+import * as List from './list';
 
 export {
   Time,
@@ -14,5 +15,6 @@ export {
   RegEx,
   Ajax,
   File,
-  Task
+  Task,
+  List
 };
