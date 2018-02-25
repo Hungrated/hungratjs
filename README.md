@@ -16,10 +16,12 @@ _initial commit on 21st Dec 2017_
 |5|Number|extend functions of number.|
 |6|Ajax|AJAX functions for data interchange.|
 |7|File|file handling functions.|
-|8|Task|provides chain operations for functions.|
+|8|Task|provides chain operations & other features for functions.|
 
 
 ### 2 Changelog & Version Control
+
+`v0.3.4` on 25 Feb 2018: update module `task`. 
 
 `v0.3.3` on 23 Feb 2018: modify module `task`. 
 
@@ -68,7 +70,7 @@ After installing dependencies, run the following command:
 npm run doc
 ```
 
->  Then visit `dist/docs/index.html` or `http://localhost:9000/docs/index.html` if you are in test environment.
+> Visit `dist/docs/index.html` or `http://localhost:9000/docs/index.html` if you are in test environment.
 
 ### 5 Build
 
@@ -78,4 +80,4 @@ After installing dependencies, run the following command:
 npm run build
 ```
 
-> Then check `dist/js-common-tools.min.js`.
+> Visit `dist/js-common-tools.min.js`.
