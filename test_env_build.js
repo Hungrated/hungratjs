@@ -11,8 +11,8 @@ const writeFile = function (path, str) {
 
 const createTestClient = function (_compressedJs, _testJs) {
   // language=HTML
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>TEST_ENV</title>` +
-    `<style>*{margin: 0;padding: 0}</style>` +
+  return `<!DOCTYPE html><html lang="en"><head><link rel="shortcut icon" href="#" /><meta charset="UTF-8">` +
+    `<title>TEST_ENV</title><style>*{margin: 0;padding: 0}</style>` +
     `</head><body><script>${_compressedJs}</script><script>${_testJs}</script></body></html>`;
 };
 
