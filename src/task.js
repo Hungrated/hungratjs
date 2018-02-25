@@ -53,7 +53,10 @@ class Task {
    * @function execute
    */
   execute () {
-    Task.next(this, arguments);
+    if (this.tasks.length) {
+      Task.next(this, arguments);
+      return this;
+    }
   }
 
   /**
@@ -82,7 +85,7 @@ class Task {
   }
 
   /**
-   * 执行链式操作的下一步
+   * 执行链式操作的下一个方法
    * @function next
    * @param {Object} _this Task对象
    * @param {Object} [_args] 上一方法传递的参数
@@ -95,7 +98,7 @@ class Task {
   }
 
   /**
-   * 存储并传递变量
+   * 传递参数
    * @function args
    * @param {Object} _this Task对象
    * @param {Object} _args 上一方法传递的参数
@@ -104,6 +107,16 @@ class Task {
    */
   static args (_this, _args, _index) {
     return (_index && _index > 0) ? _this.argArr[_index - 1] : _args;
+  }
+
+  /**
+   * 清空方法链
+   * @function clear
+   */
+  clear () {
+    this.tasks = [];
+    this.argArr = [];
+    return this;
   }
 }
 

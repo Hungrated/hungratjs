@@ -116,7 +116,7 @@ test(function () {
   task.add(function () {
     htmlLog('task 5 will not be executed');
   });
-  task.execute(0);
+  task.execute(0).clear();
 
   // list.js
   // let arr = [1, 2, 3];
