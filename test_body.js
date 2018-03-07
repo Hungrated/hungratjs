@@ -42,15 +42,15 @@ test(function () {
   // htmlLog(Time.formatTime());
   // htmlLog(Time.formatTimeDifference(1518334829701, 1518333473303));
   // htmlLog(Time.formatTimeDifferenceTillNow(1518333473303));
-  //
+
   // // regexp.js
   // htmlLog(RegEx.testType('13456789000', 'phone'));
   // console.log(RegEx.testType('13456789000', 'phone'));
-  //
+
   // // uuid.js
   // htmlLog(Uid.generate(), Uid.generate(), Uid.generate());
   // htmlLog(Uid.generateDigit(), Uid.generateDigit(), Uid.generateDigit());
-  //
+
   // // string.js
   // let temp = '   testString   ';
   // htmlLog(temp.trimSpace());
@@ -81,42 +81,42 @@ test(function () {
   //   });
   // });
 
-  // task.js
-  let task = new Task();
-
-  task.add(function (next, args) {
-    htmlLog('task 1 executed');
-    let objA = {
-      a: 'a'
-    };
-    console.log('client: ', args());
-    next(objA, 0, 1);
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args(2));
-    htmlLog('task 2 executed');
-    next();
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args());
-    if (args().length) {
-      htmlLog('task 3 will not be executed');
-    } else {
-      next();
-    }
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args(1));
-    htmlLog('task 4 executed');
-  });
-
-  task.add(function () {
-    htmlLog('task 5 will not be executed');
-  });
-  task.execute(0).clear();
+  // // task.js
+  // let task = new Task();
+  //
+  // task.add(function (next, args) {
+  //   htmlLog('task 1 executed');
+  //   let objA = {
+  //     a: 'a'
+  //   };
+  //   console.log('client: ', args());
+  //   next(objA, 0, 1);
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args(2));
+  //   htmlLog('task 2 executed');
+  //   next();
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args());
+  //   if (args().length) {
+  //     htmlLog('task 3 will not be executed');
+  //   } else {
+  //     next();
+  //   }
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args(1));
+  //   htmlLog('task 4 executed');
+  // });
+  //
+  // task.add(function () {
+  //   htmlLog('task 5 will not be executed');
+  // });
+  // task.execute(0).clear();
 
   // list.js
   // let arr = [1, 2, 3];
