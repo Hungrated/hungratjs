@@ -81,42 +81,42 @@ test(function () {
   //   });
   // });
 
-  // // task.js
-  // let task = new Task();
-  //
-  // task.add(function (next, args) {
-  //   htmlLog('task 1 executed');
-  //   let objA = {
-  //     a: 'a'
-  //   };
-  //   console.log('client: ', args());
-  //   next(objA, 0, 1);
-  // });
-  //
-  // task.add(function (next, args) {
-  //   console.log('client: ', args(2));
-  //   htmlLog('task 2 executed');
-  //   next();
-  // });
-  //
-  // task.add(function (next, args) {
-  //   console.log('client: ', args());
-  //   if (args().length) {
-  //     htmlLog('task 3 will not be executed');
-  //   } else {
-  //     next();
-  //   }
-  // });
-  //
-  // task.add(function (next, args) {
-  //   console.log('client: ', args(1));
-  //   htmlLog('task 4 executed');
-  // });
-  //
-  // task.add(function () {
-  //   htmlLog('task 5 will not be executed');
-  // });
-  // task.execute(0).clear();
+  // task.js
+  let task = new Task();
+
+  task.add(function (next, args) {
+    htmlLog('task 1 executed');
+    let objA = {
+      a: 'a'
+    };
+    console.log('client: ', args());
+    next(objA, 0, 1);
+  });
+
+  task.add(function (next, args) {
+    console.log('client: ', args(2));
+    htmlLog('task 2 executed');
+    next();
+  });
+
+  task.add(function (next, args) {
+    console.log('client: ', args());
+    if (args().length) {
+      htmlLog('task 3 will not be executed');
+    } else {
+      next();
+    }
+  });
+
+  task.add(function (next, args) {
+    console.log('client: ', args(1));
+    htmlLog('task 4 executed');
+  });
+
+  task.add(function () {
+    htmlLog('task 5 will not be executed');
+  });
+  task.execute(0).clear();
 
   // list.js
   // let arr = [1, 2, 3];
