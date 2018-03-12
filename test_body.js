@@ -119,7 +119,7 @@ test(function () {
   task.execute(0).clear();
 
   // list.js
-  // let arr = [1, 2, 3];
-  // htmlLog(arr.toString());
-  // htmlLog(List.parseList(arr.toString()));
+  let arr = [1, 2, 3];
+  htmlLog(arr.toString());
+  htmlLog(List.parseList(arr.toString()));
 });
