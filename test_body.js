@@ -66,9 +66,9 @@ test(function () {
   // htmlLog('Pumas are large and cat-like animals.'.wordIncludes('Pumas', 2));
   //
   // number.js
-  htmlLog((12323456675463).addCommaFormat());
-  htmlLog((12323456675463).toMegaBytes() + ' MB');
-  htmlLog((12323456675463).toGigaBytes() + ' GB');
+  // htmlLog((12323456675463).addCommaFormat());
+  // htmlLog((12323456675463).toMegaBytes() + ' MB');
+  // htmlLog((12323456675463).toGigaBytes() + ' GB');
 
   // ajax.js
   // Ajax.get('http://localhost:9000/get', function (data) {
@@ -119,7 +119,7 @@ test(function () {
   task.execute(0).clear();
 
   // list.js
-  let arr = [1, 2, 3];
-  htmlLog(arr.toString());
-  htmlLog(List.parseList(arr.toString()));
+  // let arr = [1, 2, 3];
+  // htmlLog(arr.toString());
+  // htmlLog(List.parseList(arr.toString()));
 });
