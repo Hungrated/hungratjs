@@ -143,5 +143,5 @@ test(function () {
   List.updateIfNotExist(arr3, 'e', function (flag) {
     htmlLog('third update: ' + flag);
     htmlLog(arr3.toString());
-  });k
+  });
 });
