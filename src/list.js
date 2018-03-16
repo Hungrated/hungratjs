@@ -66,7 +66,7 @@ const sortNumbersReverse = (_arr) => {
  * 数组去重
  * @function deduplicate
  * @param {Array} _arr 待处理数组
- * @returns {Array} 去重后
+ * @returns {Array} 去重后的数组
  */
 const deduplicate = (_arr) => {
   return _arr.sort().reduce((_init, _cur) => {
@@ -78,8 +78,10 @@ const deduplicate = (_arr) => {
 };
 
 /**
- * 判断数组是否包含
+ * 判断数组是否包含指定元素
  * @function includes
+ * @param {String|Number|Object} searchElement 要搜索的元素
+ * @param {Number} fromIndex 搜索的起始位置
  * @returns {Boolean} 判断结果
  */
 if (!Array.prototype.includes) {
