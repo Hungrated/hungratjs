@@ -42,15 +42,15 @@ test(function () {
   // htmlLog(Time.formatTime());
   // htmlLog(Time.formatTimeDifference(1518334829701, 1518333473303));
   // htmlLog(Time.formatTimeDifferenceTillNow(1518333473303));
-  //
+
   // // regexp.js
   // htmlLog(RegEx.testType('13456789000', 'phone'));
   // console.log(RegEx.testType('13456789000', 'phone'));
-  //
+
   // // uuid.js
   // htmlLog(Uid.generate(), Uid.generate(), Uid.generate());
   // htmlLog(Uid.generateDigit(), Uid.generateDigit(), Uid.generateDigit());
-  //
+
   // // string.js
   // let temp = '   testString   ';
   // htmlLog(temp.trimSpace());
