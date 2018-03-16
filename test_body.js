@@ -82,44 +82,66 @@ test(function () {
   // });
 
   // task.js
-  let task = new Task();
-
-  task.add(function (next, args) {
-    htmlLog('task 1 executed');
-    let objA = {
-      a: 'a'
-    };
-    console.log('client: ', args());
-    next(objA, 0, 1);
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args(2));
-    htmlLog('task 2 executed');
-    next();
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args());
-    if (args().length) {
-      htmlLog('task 3 will not be executed');
-    } else {
-      next();
-    }
-  });
-
-  task.add(function (next, args) {
-    console.log('client: ', args(1));
-    htmlLog('task 4 executed');
-  });
-
-  task.add(function () {
-    htmlLog('task 5 will not be executed');
-  });
-  task.execute(0).clear();
+  // let task = new Task();
+  //
+  // task.add(function (next, args) {
+  //   htmlLog('task 1 executed');
+  //   let objA = {
+  //     a: 'a'
+  //   };
+  //   console.log('client: ', args());
+  //   next(objA, 0, 1);
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args(2));
+  //   htmlLog('task 2 executed');
+  //   next();
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args());
+  //   if (args().length) {
+  //     htmlLog('task 3 will not be executed');
+  //   } else {
+  //     next();
+  //   }
+  // });
+  //
+  // task.add(function (next, args) {
+  //   console.log('client: ', args(1));
+  //   htmlLog('task 4 executed');
+  // });
+  //
+  // task.add(function () {
+  //   htmlLog('task 5 will not be executed');
+  // });
+  // task.execute(0).clear();
 
   // list.js
-  // let arr = [1, 2, 3];
-  // htmlLog(arr.toString());
-  // htmlLog(List.parseList(arr.toString()));
+  let arr1 = [1, 2, 3];
+  htmlLog(arr1.toString());
+  htmlLog(List.parseList(arr1.toString()));
+
+  let arr2 = [1, 2, 3, 3, 3, 3, 4, 7, 6, 8, 5, 5, 0, 9];
+  htmlLog(arr2.toString());
+  htmlLog(List.sum(arr2));
+  htmlLog(List.sortNumbers(arr2));
+  htmlLog(List.sortNumbersReverse(arr2));
+  htmlLog(List.deduplicate(arr2));
+
+  let arr3 = ['a', 'b', 'c'];
+  htmlLog(arr3.toString());
+  List.updateIfNotExist(arr3, 'd', function (flag) {
+    htmlLog('first update: ' + flag);
+    htmlLog(arr3.toString());
+  });
+  List.updateIfNotExist(arr3, 'd', function (flag) {
+    htmlLog('second update: ' + flag);
+    htmlLog(arr3.toString());
+  });
+  List.updateIfNotExist(arr3, 'e', function (flag) {
+    htmlLog('third update: ' + flag);
+    htmlLog(arr3.toString());
+  });k
 });
