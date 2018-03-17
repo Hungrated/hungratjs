@@ -18,10 +18,10 @@ const parseList = (_str) => {
 
 /**
  * 不重复地向数组插入元素
- * @function parseList
+ * @function updateIfNotExist
  * @param {Array} _arr 待处理数组
  * @param {String|Number|Object} _unit 要插入的项目
- * @param {String} _cb 回调方法 `第一个参数flag：若元素已存在返回false，否则返回true`
+ * @param {Function} _cb 回调方法 `第一个参数flag：若元素已存在返回false，否则返回true`
  */
 const updateIfNotExist = (_arr, _unit, _cb) => {
   if (_arr.indexOf(_unit) === -1) {
