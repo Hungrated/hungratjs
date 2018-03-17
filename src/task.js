@@ -54,7 +54,7 @@ class Task {
    */
   execute () {
     if (this.tasks.length) {
-      Task.next(this, arguments);
+      Task.next(this, Array.from(arguments));
       return this;
     }
   }
@@ -73,7 +73,7 @@ class Task {
       _taskFn(
         // next([args])
         function () {
-          Task.next(_this, arguments);
+          Task.next(_this, Array.from(arguments));
         },
         // args([index])
         function (_index) {
