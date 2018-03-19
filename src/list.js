@@ -69,12 +69,13 @@ const sortNumbersReverse = (_arr) => {
  * @returns {Array} 去重后的数组
  */
 const deduplicate = (_arr) => {
-  return _arr.sort().reduce((_init, _cur) => {
-    if (_init.length === 0 || _init[_init.length - 1] !== _cur) {
-      _init.push(_cur);
-    }
-    return _init;
-  }, []);
+  return Array.from(new Set(_arr));
+  // return _arr.sort().reduce((_init, _cur) => {
+  //   if (_init.length === 0 || _init[_init.length - 1] !== _cur) {
+  //     _init.push(_cur);
+  //   }
+  //   return _init;
+  // }, []);
 };
 
 /**

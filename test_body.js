@@ -117,29 +117,29 @@ test(function () {
   // task.execute(0).clear();
 
   // list.js
-  let arr1 = [1, 2, 3];
-  htmlLog(arr1.toString());
-  htmlLog(List.parseList(arr1.toString()));
+  // let arr1 = [1, 2, 3];
+  // htmlLog(arr1.toString());
+  // htmlLog(List.parseList(arr1.toString()));
 
-  let arr2 = [1, 2, 3, 3, 3, 3, 4, 7, 6, 8, 5, 5, 0, 9];
-  htmlLog(arr2.toString());
-  htmlLog(List.sum(arr2));
-  htmlLog(List.sortNumbers(arr2));
-  htmlLog(List.sortNumbersReverse(arr2));
-  htmlLog(List.deduplicate(arr2));
+  // let arr2 = [1, 2, 3, 3, 3, 3, 4, 7, 6, 8, 5, 5, 0, 9];
+  // htmlLog(arr2.toString());
+  // htmlLog(List.sum(arr2));
+  // htmlLog(List.sortNumbers(arr2));
+  // htmlLog(List.sortNumbersReverse(arr2));
+  // htmlLog(List.deduplicate(arr2));
 
-  let arr3 = ['a', 'b', 'c'];
-  htmlLog(arr3.toString());
-  List.updateIfNotExist(arr3, 'd', function (flag) {
-    htmlLog('first update: ' + flag);
-    htmlLog(arr3.toString());
-  });
-  List.updateIfNotExist(arr3, 'd', function (flag) {
-    htmlLog('second update: ' + flag);
-    htmlLog(arr3.toString());
-  });
-  List.updateIfNotExist(arr3, 'e', function (flag) {
-    htmlLog('third update: ' + flag);
-    htmlLog(arr3.toString());
-  });
+  // let arr3 = ['a', 'b', 'c'];
+  // htmlLog(arr3.toString());
+  // List.updateIfNotExist(arr3, 'd', function (flag) {
+  //   htmlLog('first update: ' + flag);
+  //   htmlLog(arr3.toString());
+  // });
+  // List.updateIfNotExist(arr3, 'd', function (flag) {
+  //   htmlLog('second update: ' + flag);
+  //   htmlLog(arr3.toString());
+  // });
+  // List.updateIfNotExist(arr3, 'e', function (flag) {
+  //   htmlLog('third update: ' + flag);
+  //   htmlLog(arr3.toString());
+  // });
 });
