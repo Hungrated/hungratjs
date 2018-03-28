@@ -25,7 +25,7 @@ let test = function (body) {
   }).then(function () {
     htmlLog(
       '<br><br>' +
-      '<strong> * Test End.</strong><br>' +
+      '<strong>* Test End.</strong><br>' +
       '===================================================================<br>'
     );
   });
