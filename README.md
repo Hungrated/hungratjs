@@ -1,4 +1,4 @@
-# js-common-tools
+# hungratjs
 
 A common javascript tool lib for development
 
