@@ -1,5 +1,5 @@
 {
-  "name": "js-common-tools",
+  "name": "hungratjs",
   "version": "0.3.5",
   "description": "A common javascript tool lib for development",
   "main": "index.js",
