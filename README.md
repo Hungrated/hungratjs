@@ -2,7 +2,7 @@
 
 A common javascript tool lib for development
 
-_initial commit on 21st Dec 2017_
+initial commit on 21st Dec 2017
 
 
 ### 1 Modules
