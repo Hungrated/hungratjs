@@ -73,7 +73,9 @@ if (!String.prototype.capitalize) {
 if (!String.prototype.wordCount) {
   Object.defineProperty(String.prototype, 'wordCount', {
     value () {
-      return this.replace(/[^A-Za-z0-9_-]+/g, ' ').trimSpace().split(' ').length;
+      return this.replace(/[^A-Za-z0-9_-]+/g, ' ')
+        .trimSpace()
+        .split(' ').length;
     },
     enumerable: false
   });
@@ -130,6 +132,41 @@ if (!String.prototype.htmlEncode) {
 }
 
 /**
+ * 限制字符数
+ * @function setLengthLimit
+ * @params {Number} _len 限制长度
+ * @returns {String} 处理后的字符串
+ */
+if (!String.prototype.setLengthLimit) {
+  Object.defineProperty(String.prototype, 'setLengthLimit', {
+    value (_len) {
+      if (!_len || _len <= 0) {
+        return '';
+      }
+      let a = Array.from(this);
+      let b = 0;
+      let c = '';
+      a.forEach((_v) => {
+        if (/[\u4E00-\u9FA5]/.test(_v)) {
+          b += 2;
+        } else if (_v.length > 1) {
+          b += 2;
+        } else {
+          b++;
+        }
+        if (b > _len) {
+          return false;
+        } else {
+          c += _v;
+        }
+      });
+      return c.length === a.length ? c : `${c}...`;
+    },
+    enumerable: false
+  });
+}
+
+/**
  * 搜索是否包含指定子串
  * `建议用includes代替indexOf方法，因为indexOf返回number，当找到返回位置0时若当作布尔值则判定为false，容易出错`
  * @function includes
@@ -163,7 +200,9 @@ if (!String.prototype.includes) {
 if (!String.prototype.wordIncludes) {
   Object.defineProperty(String.prototype, 'wordIncludes', {
     value (_search, _start) {
-      let _wordArray = this.replace(/[^A-Za-z0-9_-]+/g, ' ').trimSpace().split(' ');
+      let _wordArray = this.replace(/[^A-Za-z0-9_-]+/g, ' ')
+        .trimSpace()
+        .split(' ');
       return _wordArray.includes(_search, _start);
     },
     enumerable: false

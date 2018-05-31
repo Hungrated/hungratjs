@@ -19,7 +19,6 @@ initial commit on 21st Dec 2017
 |8|Task|provides chain operations & other features for functions.|
 |9|List|provides functions to handle lists.|
 
-
 ### 2 Changelog & Version Control
 
 `v0.3.5` on 16 Mar 2018: add module `list`. 

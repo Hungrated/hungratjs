@@ -142,4 +142,16 @@ test(function () {
   //   htmlLog('third update: ' + flag);
   //   htmlLog(arr3.toString());
   // });
+
+  htmlLog('今天天气真不错'.setLengthLimit());
+  htmlLog('今天天气真不错'.setLengthLimit(1));
+  htmlLog('今天天气真不错'.setLengthLimit(2));
+  htmlLog('今天天气真不错'.setLengthLimit(3));
+  htmlLog('今天天气真不错'.setLengthLimit(4));
+  htmlLog('今天天气真不错'.setLengthLimit(5));
+  htmlLog('今天天气真不错'.setLengthLimit(6));
+  htmlLog('今天天气真不错'.setLengthLimit(7));
+  htmlLog('今天天气真不错'.setLengthLimit(8));
+  htmlLog('今天天气真不错'.setLengthLimit(9));
+  htmlLog('今天天气真不错'.setLengthLimit(10));
 });
